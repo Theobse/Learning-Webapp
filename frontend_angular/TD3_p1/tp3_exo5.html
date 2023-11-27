@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+  <button id="myButton">Click Me</button>
+  <p id="lastClick">No button click yet.</p>
+
+  <script>
+    var lastClickElement = document.getElementById("lastClick");
+
+    // Event handler for button click
+    function handleClick() {
+      var currentDate = new Date();
+      var formattedDate = currentDate.toLocaleString();
+      lastClickElement.textContent = `The button was last clicked at date: ${formattedDate} !`;
+    }
+
+    // Add event listener for button click
+    var myButton = document.getElementById("myButton");
+    myButton.addEventListener("click", handleClick);
+  </script>
+</body>
+</html>

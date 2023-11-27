@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+  <input type="text" id="input">
+  <button id="myButton">Add Item</button>
+  <ul id="list"></ul>
+
+  <script>
+    var inputElement = document.getElementById("input");
+    var listElement = document.getElementById("list");
+    var addButton = document.getElementById("myButton");
+
+    function handleClick() {
+      var inputValue = inputElement.value;
+
+      if (inputValue.trim() !== '') {
+        var listItem = document.createElement("li");
+        listItem.textContent = inputValue;
+        listElement.appendChild(listItem);
+        inputElement.value = '';
+      }
+    }
+
+    addButton.addEventListener("click", handleClick);
+  </script>
+</body>
+</html>
