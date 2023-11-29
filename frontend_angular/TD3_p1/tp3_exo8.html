@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+  <input type="text" id="textInput" onkeyup="handleKeyUp(event)">
+  <ul id="list"></ul>
+
+  <script>
+    var textInput = document.getElementById("textInput");
+    var list = document.getElementById("list");
+
+    // Event handler for key up event
+    function handleKeyUp(event) {
+      if (event.key === "Enter") {
+        var enteredText = textInput.value.trim();
+
+        if (enteredText !== '') {
+          var listItem = document.createElement("li");
+          listItem.textContent = enteredText;
+          list.appendChild(listItem);
+          textInput.value = '';
+        }
+      } else {
+        var lastListItem = list.lastElementChild;
+        if (lastListItem) {
+          lastListItem.textContent = textInput.value;
+        }
+      }
+    }
+  </script>
+</body>
+</html>
