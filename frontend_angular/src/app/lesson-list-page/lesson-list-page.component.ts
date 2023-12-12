@@ -9,10 +9,7 @@ export class LessonListPageComponent implements OnInit, OnDestroy {
   constructor(private userSettingsService: UserSettingsService, private httpClient : HttpClient) {
     console.log("LessonListPageComponent.constructor()");
     console.log("get lastLessonId:", userSettingsService.lastLessonId);
-
   }
-
-
 
   ngOnInit(): void {
     console.log("LessonListPageComponent.ngOnInit()");
