@@ -1,30 +1,39 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Foo = void 0;
+/*
 function f() {
     console.log('Test');
 }
+
 f();
+
 // @ts-ignore
-var Foo = /** @class */ (function () {
-    function Foo(field1) {
-        this.field1 = field1;
-        this.field2 = 1;
+export class Foo {
+    field2 : number = 1;
+
+    constructor(public  field1 : number) {
     }
-    Foo.prototype.print = function () {
+
+    print() : void{
         console.log('Foo field1 : ', this.field1);
         console.log('Foo field2 : ', this.field2);
         console.log('Foo fieldxxxx : ', this.fieldxxxx);
-    };
-    return Foo;
-}());
-exports.Foo = Foo;
-var foo = new Foo(123);
+    }
+}
+
+let foo : Foo = new Foo( 123);
 foo.print();
+
+
+
 fetch('http://www.google.fr')
-    .then(function (resp) { return resp.text(); })
-    .then(function (text) {
-    console.log('text', text);
-});
+    .then(resp => resp.text())
+    .then(text => {
+        console.log('text',text);
+    })
+
 console.log(log('Finished'));
+
+
+ */ 
 //# sourceMappingURL=main.js.map

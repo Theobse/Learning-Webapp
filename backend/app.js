@@ -2,85 +2,162 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const express = require("express");
 const app = express();
-app.use(express.json()); // => to parse request body with http header "content-type": "application/json"
+app.use(express.json());
+
+
+
 app.get('/api/liveness', (req, res) => {
     res.send('OK !!!');
 });
-app.use(express.json()); // => to parse request body with http header "content-type": "application/json"
-let idGenerator = 1;
-function newId() {
-    return idGenerator++;
-}
-let learningPackages = [
-    { id: newId(), title: 'Learn TypeScript' },
-    { id: newId(), title: 'Learn Angular' },
-    { id: newId(), title: 'Learn NodeJs' },
-    { id: newId(), title: 'Learn Express' },
-];
-app.get('/api/learning-package', (req, res) => {
-    res.send(learningPackages);
+
+
+const { Pool } = require('pg');
+// Configuration de la connexion à la base de données
+const pool = new Pool({
+    user: 'LearningDbUser', // Utilisateur de la base de données
+    host: 'localhost', // Nom du serveur (dans ce cas, localhost)
+    database: 'LearningFactDb', // Nom de la base de données
+    password: 'root', // Mot de passe de l'utilisateur
+    port: 5432, // Port par défaut de PostgreSQL
 });
-app.post('/api/learning-package', (req, res) => {
-    let item = req.body;
-    console.log('handle http POST /api/learning-package', item);
-    item.id = newId();
-    learningPackages.push(item);
-    res.send(item);
-});
-console.log('starting...');
-app.listen(3000, () => {
-    console.log('Ok, started!');
-});
-// Define a route for querying a LearningPackage by its id
-app.get('/api/package/:id', (req, res) => {
-    const packageId = +(req.params.id);
-    // Find the LearningPackage by ID in the sample data
-    const foundPackage = learningPackages.find((pkg) => pkg.id === packageId);
-    if (foundPackage) {
-        // If the package is found, respond with status code 200 and the package data in JSON
-        res.status(200).json(foundPackage);
-    }
-    else {
-        // If the package is not found, respond with status code 404 and an error message in JSON
-        res.status(404).json({ error: `Entity not found for id: ${packageId}` });
+
+pool.query('SELECT NOW()', (err, res) => {
+    if (err) {
+        console.error('Erreur lors de la connexion à la base de données', err);
+    } else {
+        console.log('Connexion à la base de données réussie !');
+        // Vous pouvez effectuer d'autres opérations ici
     }
 });
-// Route to create a new LearningPackage
-app.post('/api/package', (req, res) => {
-    const newPackage = req.body;
-    // Vérifiez si les champs obligatoires sont fournis
-    if (!newPackage.title) {
-        res.status(400).json({ error: 'Le champ "title" est obligatoire.' });
-        return;
+
+
+
+
+
+
+
+
+
+const { Sequelize } = require('sequelize');
+const { LearningPackage } = require('./learningPackage.model');
+const { Course } = require('./course.model'); // Assurez-vous que le modèle est correctement exporté
+
+// Remplacez les informations suivantes par votre configuration de base de données PostgreSQL
+const sequelize = new Sequelize('LearningFactDb', 'LearningDbUser', 'root', {
+    host: 'localhost',
+    dialect: 'postgres', // Spécifiez le dialecte comme PostgreSQL
+    port: 5432,
+});
+
+(async () => {
+    try {
+        await sequelize.authenticate(); // Vérifie la connexion à la base de données
+        console.log('Connexion à la base de données réussie.');
+
+        await LearningPackage.sync({ alter: true });
+        console.log('La synchronisation de LearningPackage avec la base de données a réussi.');
+
+        await Course.sync({ alter: true });
+        console.log('La synchronisation de Course avec la base de données a réussi.');
+    } catch (error) {
+        console.error('Erreur lors de la synchronisation avec la base de données :', error);
     }
-    // Attribuez un nouvel ID au package (simulez l'attribution d'ID unique)
-    newPackage.id = learningPackages.length + 1;
-    // Ajoutez le nouveau package à la liste des packages
-    learningPackages.push(newPackage);
-    // Répondez avec un code d'état 200 et le package créé en JSON (y compris son nouvel ID)
-    res.status(200).json(newPackage);
-});
-// Route to update an existing LearningPackage by ID
-app.put('/api/package/:id', (req, res) => {
-    const packageId = +(req.params.id);
-    const updatedPackage = req.body;
-    // Find the index of the package in the array based on its ID
-    const packageIndex = learningPackages.findIndex((pkg) => pkg.id === packageId);
-    if (packageIndex === -1) {
-        // If the package is not found, respond with a 404 error
-        res.status(404).json({ error: `Entity not found for id: ${packageId}` });
-        return;
+})();
+
+
+
+
+
+
+
+
+
+
+app.get('/api/learning-package', async (req, res) => {
+    try {
+        // Utiliser Sequelize pour récupérer tous les éléments de LearningPackage depuis la base de données
+        const learningPackages = await LearningPackage.findAll();
+
+        // Répondre avec les LearningPackages récupérés en JSON
+        res.status(200).json(learningPackages);
+    } catch (error) {
+        // Gérer les erreurs lors de la récupération des LearningPackages
+        res.status(500).json({ message: 'Erreur lors de la récupération des LearningPackages.', error: error.message });
     }
-    // Update the existing package with the new data
-    learningPackages[packageIndex] = Object.assign(Object.assign({}, learningPackages[packageIndex]), updatedPackage);
-    // Respond with a 200 status code and the modified package in JSON
-    res.status(200).json(learningPackages[packageIndex]);
 });
-// Route to get summaries of LearningPackages
-app.get('/api/package-summaries', (req, res) => {
-    // Map the array of LearningPackages to include only {id, title} fields
-    const packageSummaries = learningPackages.map(({ id, title }) => ({ id, title }));
-    // Respond with a 200 status code and the package summaries in JSON
-    res.status(200).json(packageSummaries);
+
+
+
+app.post('/api/learning-package', async (req, res) => {
+    try {
+        const newPackage = await LearningPackage.create(req.body); // Utiliser Sequelize pour créer un nouveau LearningPackage dans la base de données
+        res.status(200).json(newPackage); // Répondre avec le LearningPackage créé en JSON
+    } catch (error) {
+        res.status(500).json({ message: 'Erreur lors de la création du LearningPackage.', error: error.message });
+    }
 });
-//# sourceMappingURL=app.js.map
+
+app.put('/api/learning-package/:id', async (req, res) => {
+    try {
+        const packageId = req.params.id; // Récupérez l'identifiant du LearningPackage depuis les paramètres de l'URL
+        const updatedPackageName = req.body.packageName; // Récupérez le nouveau nom du package à partir du corps de la requête
+
+        // Trouvez le LearningPackage par ID dans la base de données
+        const learningPackage = await LearningPackage.findByPk(packageId);
+
+        if (!learningPackage) {
+            // Si le package n'est pas trouvé, renvoyez une erreur 404
+            return res.status(404).json({ message: `LearningPackage avec l'ID ${packageId} non trouvé.` });
+        }
+
+        // Mettez à jour le champ packageName avec la nouvelle valeur
+        learningPackage.packageName = updatedPackageName;
+
+        // Enregistrez les modifications dans la base de données
+        await learningPackage.save();
+
+        // Répondre avec le LearningPackage mis à jour
+        res.status(200).json(learningPackage);
+    } catch (error) {
+        // Gérer les erreurs lors de la mise à jour du LearningPackage
+        res.status(500).json({ message: 'Erreur lors de la mise à jour du LearningPackage.', error: error.message });
+    }
+});
+
+
+// Route DELETE pour supprimer un LearningPackage par son ID
+app.delete('/api/package/:packageId', async (req, res) => {
+    try {
+        const packageId = req.params.packageId; // Récupérez l'identifiant du LearningPackage depuis les paramètres de l'URL
+
+        // Trouvez le LearningPackage par ID dans la base de données
+        const learningPackage = await LearningPackage.findByPk(packageId);
+        if (!learningPackage) {
+            return res.status(404).json({ message: `LearningPackage avec l'ID ${packageId} non trouvé.` });
+        }
+
+        // Supprimez le LearningPackage de la base de données
+        await learningPackage.destroy();
+
+        // Répondre avec un message de réussite
+        res.status(200).json({ message: `LearningPackage avec l'ID ${packageId} supprimé.` });
+    } catch (error) {
+        // Gérer les erreurs lors de la suppression du LearningPackage
+        res.status(500).json({ message: 'Erreur lors de la suppression du LearningPackage.', error: error.message });
+    }
+});
+
+
+
+
+// Lancement du serveur
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Serveur démarré sur le port ${PORT}`);
+});
+
+
+
+
+
+

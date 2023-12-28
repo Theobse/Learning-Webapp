@@ -1,5 +1,6 @@
 import {response} from "express";
 
+/*
 function f() {
     console.log('Test');
 }
@@ -31,4 +32,7 @@ fetch('http://www.google.fr')
         console.log('text',text);
     })
 
-console.log(log('Finished'))
+console.log(log('Finished'));
+
+
+ */
