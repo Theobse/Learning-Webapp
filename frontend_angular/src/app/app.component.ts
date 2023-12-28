@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -6,16 +7,11 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
-  title = 'TD3_node';
+ export class AppComponent {
+  constructor(private router: Router) {}
 
-  constructor() {
-    console.log('Appcomponent.constructor()')
+  Page_accueil() {
+    this.router.navigate(['/accueil']);
   }
-
-  ngOnInit(): void {
-    console.log('AppComponent.constructor()')
-  }
-
 }
 

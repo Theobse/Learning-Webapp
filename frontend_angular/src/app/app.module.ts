@@ -6,12 +6,16 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LessonListPageComponent } from './lesson-list-page/lesson-list-page.component';
 import { FormsModule , ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import { ConnectionComponent } from './connection/connection.component';
+import {AccueilFormComponent} from "./accueil-form/accueil-form.component";
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LessonListPageComponent,
+    AccueilFormComponent,
+    ConnectionComponent,
   ],
   imports: [
     BrowserModule,
