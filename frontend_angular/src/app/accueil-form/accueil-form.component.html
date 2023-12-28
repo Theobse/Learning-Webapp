@@ -21,7 +21,7 @@
 <!-- Ruban vertical à gauche avec des options -->
 <aside class="side-menu">
   <ul>
-    <li><a href="#">Voir nos cours</a></li>
+    <li><a href="javascript:void(0)" (click)="redirectToSelectPage()">Voir nos cours</a></li>
     <li><a href="#">Créer des cours</a></li>
     <li><a href="#">Statistique</a></li>
     <!-- Ajoutez d'autres options latérales ici -->
@@ -33,17 +33,9 @@
   <div class="content">
     <!-- L'emplacement où le contenu de la page apparaîtra -->
   </div>
-  <button (click)="redirectToConnexionPage()">Aller à la page de connexion</button>
+  <button (click)="seDeconnecter()">Se deconnecter</button>
 </main>
 
-<!-- Ajoutez ici vos scripts JavaScript si nécessaire -->
-
-<!-- Configurations pour la navigation -->
-<script>
-  // Ajoutez ici votre code pour la navigation entre la page de connexion et la page d'accueil
-  // Par exemple, utilisez des écouteurs d'événements pour les clics sur le bouton de connexion
-  // Redirigez ensuite l'utilisateur vers la page d'accueil lorsque le bouton est cliqué.
-</script>
 </body>
 </html>
 

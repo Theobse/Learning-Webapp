@@ -18,6 +18,7 @@ export class LessonListPageComponent implements OnInit, OnDestroy {
     console.log("LessonListPageComponent.ngOnDestroy()");
   }
 
+
   protected readonly onclick = onclick;
 
   onClick() {

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -6,10 +6,13 @@ import { Router } from '@angular/router';
   templateUrl: './accueil-form.component.html',
   styleUrls: ['./accueil-form.component.css']
 })
-export class AccueilFormComponent {
+export class AccueilFormComponent  {
   constructor(private router: Router) {}
 
-  redirectToConnexionPage() {
+  redirectToSelectPage() {
+    this.router.navigate(['LessonSelect']);
+  }
+  seDeconnecter() {
     this.router.navigate(['connection']);
   }
 

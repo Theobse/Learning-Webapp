@@ -1,0 +1,17 @@
+
+<p>lesson-select works!</p>
+<!-- lesson-select.component.html -->
+
+<div>
+  <h2>Leçons Disponibles</h2>
+  <ul>
+    <li *ngFor="let lesson of lessons">
+      {{ lesson.packageName }} <!-- Modifier selon la structure des données reçues -->
+      <span *ngIf="getAvailableCoursesCount(lesson.id) > 0">
+        {{ getAvailableCoursesCount(lesson.id) }} courses available
+      </span>
+    </li>
+  </ul>
+  <button (click)="returnAccueil()">Retourner à l'accueil</button>
+
+</div>

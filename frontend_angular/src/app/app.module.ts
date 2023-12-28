@@ -8,6 +8,7 @@ import { FormsModule , ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { ConnectionComponent } from './connection/connection.component';
 import {AccueilFormComponent} from "./accueil-form/accueil-form.component";
+import { LessonSelectComponent } from './lesson-select/lesson-select.component';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import {AccueilFormComponent} from "./accueil-form/accueil-form.component";
     LessonListPageComponent,
     AccueilFormComponent,
     ConnectionComponent,
+    LessonSelectComponent,
   ],
   imports: [
     BrowserModule,

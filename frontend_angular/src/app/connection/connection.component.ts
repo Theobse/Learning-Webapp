@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-connection',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./connection.component.css']
 })
 export class ConnectionComponent {
-
+  constructor(private router: Router) {}
+  seConnecter() {
+    this.router.navigate(['accueil']);
+  }
 }
