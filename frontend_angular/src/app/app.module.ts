@@ -11,7 +11,9 @@ import {AccueilFormComponent} from "./accueil-form/accueil-form.component";
 import { LessonSelectComponent } from './lesson-select/lesson-select.component';
 import { StatistiqueComponent } from './statistique/statistique.component';
 import { CreationCoursComponent } from './creation-cours/creation-cours.component';
-
+import { AgGridModule } from 'ag-grid-angular';
+import {AgGridComponent} from "./ag-grid/ag-grid.component";
+import { CreationMatiereComponent } from './creation-matiere/creation-matiere.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { CreationCoursComponent } from './creation-cours/creation-cours.componen
     LessonSelectComponent,
     StatistiqueComponent,
     CreationCoursComponent,
+    AgGridComponent,
+    CreationMatiereComponent
   ],
   imports: [
     BrowserModule,
@@ -30,11 +34,10 @@ import { CreationCoursComponent } from './creation-cours/creation-cours.componen
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule, // <= for supports FormGroup/FormBuilder
+    AgGridModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
-
-
 
 })
 export class AppModule { }

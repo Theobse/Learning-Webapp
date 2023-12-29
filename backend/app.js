@@ -4,8 +4,6 @@ const express = require("express");
 const app = express();
 app.use(express.json());
 
-
-
 app.get('/api/liveness', (req, res) => {
     res.send('OK !!!');
 });
@@ -147,7 +145,14 @@ app.delete('/api/package/:packageId', async (req, res) => {
     }
 });
 
-
+app.post('/api/Creation', async (req, res) => {
+    try {
+        const newPackage = await LearningPackage.create(req.body); // Utiliser Sequelize pour créer un nouveau LearningPackage dans la base de données
+        res.status(200).json(newPackage); // Répondre avec le LearningPackage créé en JSON
+    } catch (error) {
+        res.status(500).json({ message: 'Erreur lors de la création du LearningPackage.', error: error.message });
+    }
+});
 
 
 // Lancement du serveur

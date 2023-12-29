@@ -16,10 +16,14 @@ export class AccueilFormComponent  {
     this.router.navigate(['connection']);
   }
   redirectToStatistic(){
-    this.router.navigate(['Statistique']);
+    this.router.navigate(['statistique']);
   }
   redirectToCreateCourses(){
-    this.router.navigate(['Creation']);
+    this.router.navigate(['CreationMatiere']);
   }
+  redirectToCreateCours(){
+    this.router.navigate(['CreationCours']);
+  }
+
 
 }
