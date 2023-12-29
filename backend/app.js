@@ -145,7 +145,7 @@ app.delete('/api/package/:packageId', async (req, res) => {
     }
 });
 
-app.post('/api/Creation', async (req, res) => {
+app.post('/api/CreationMatiere', async (req, res) => {
     try {
         const newPackage = await LearningPackage.create(req.body); // Utiliser Sequelize pour créer un nouveau LearningPackage dans la base de données
         res.status(200).json(newPackage); // Répondre avec le LearningPackage créé en JSON
@@ -153,6 +153,37 @@ app.post('/api/Creation', async (req, res) => {
         res.status(500).json({ message: 'Erreur lors de la création du LearningPackage.', error: error.message });
     }
 });
+
+
+app.post('/api/CreationCours', async (req, res) => {
+    try {
+        const { titreCours, descriptionCours, nomMatiere } = req.body;
+
+        const learningPackage = await LearningPackage.findOne({
+            where: { packageName: nomMatiere }
+        });
+
+        if (!learningPackage) {
+            return res.status(404).json({ message: 'Matière non trouvée.' });
+        }
+
+        const newCourse = await Course.create({
+            title: titreCours,
+            description: descriptionCours,
+            learning_package_id: learningPackage.id
+        });
+
+        res.status(200).json(newCourse);
+    } catch (error) {
+        res.status(500).json({ message: 'Erreur lors de la création du cours.', error: error.message });
+    }
+});
+
+
+
+
+
+
 
 
 // Lancement du serveur
