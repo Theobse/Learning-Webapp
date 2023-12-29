@@ -1,5 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, Input } from '@angular/core';
+import {Router} from "@angular/router";
+
 
 @Component({
   selector: 'app-statistique',
@@ -7,8 +8,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./statistique.component.css'],
 })
 export class StatistiqueComponent {
+  constructor(
+      private router: Router) {}
 
-  constructor(private router: Router) {}
 
   returnAccueil() {
     this.router.navigate(['accueil']);

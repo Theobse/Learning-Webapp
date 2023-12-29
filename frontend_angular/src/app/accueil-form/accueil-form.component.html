@@ -8,11 +8,12 @@
 <body>
 <!-- Ruban supérieur avec des menus -->
 <header class="top-menu">
+  <h1>Projet Node Et React</h1>
+
   <nav>
     <ul>
-      <li><a href="#">Accueil</a></li>
+      <li><a href="javascript:void(0)" (click)="returnAccueil()">Accueil</a></li>
       <li><a href="#">Profil</a></li>
-      <li><a href="#">Paramètres</a></li>
       <!-- Ajoutez d'autres options de menu selon vos besoins -->
     </ul>
   </nav>
@@ -34,9 +35,15 @@
   <div class="content">
     <!-- L'emplacement où le contenu de la page apparaîtra -->
   </div>
-  <button (click)="seDeconnecter()">Se deconnecter</button>
+  <button class="logout-button" (click)="seDeconnecter()">Se déconnecter</button>
+
 </main>
 
+<footer class="footer">
+  <p>&copy; Projet Node Et React. Tous droits réservés.</p>
+  <p>Alexandre Bernard , Jeremy Beugnon et Théo Besse</p>
+
+</footer>
 </body>
 </html>
 

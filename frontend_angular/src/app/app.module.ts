@@ -14,7 +14,8 @@ import { CreationCoursComponent } from './creation-cours/creation-cours.componen
 import { AgGridModule } from 'ag-grid-angular';
 import {AgGridComponent} from "./ag-grid/ag-grid.component";
 import { CreationMatiereComponent } from './creation-matiere/creation-matiere.component';
-
+import { HighchartsComponent } from './highcharts/highcharts.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,8 @@ import { CreationMatiereComponent } from './creation-matiere/creation-matiere.co
     StatistiqueComponent,
     CreationCoursComponent,
     AgGridComponent,
-    CreationMatiereComponent
+    CreationMatiereComponent,
+    HighchartsComponent
   ],
   imports: [
     BrowserModule,
@@ -34,10 +36,13 @@ import { CreationMatiereComponent } from './creation-matiere/creation-matiere.co
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule, // <= for supports FormGroup/FormBuilder
-    AgGridModule,
+    AgGridModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+    schemas: [
+        CUSTOM_ELEMENTS_SCHEMA
+    ]
 
 })
 export class AppModule { }

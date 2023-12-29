@@ -9,6 +9,7 @@ import { CreationCoursComponent } from './creation-cours/creation-cours.componen
 import { AgGridComponent } from './ag-grid/ag-grid.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { CreationMatiereComponent } from './creation-matiere/creation-matiere.component';
+import { HighchartsComponent } from './highcharts/highcharts.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'connection', pathMatch: 'full' },

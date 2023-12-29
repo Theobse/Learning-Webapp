@@ -24,6 +24,9 @@ export class AccueilFormComponent  {
   redirectToCreateCours(){
     this.router.navigate(['CreationCours']);
   }
+  returnAccueil() {
+    this.router.navigate(['accueil']);
+  }
 
 
 }

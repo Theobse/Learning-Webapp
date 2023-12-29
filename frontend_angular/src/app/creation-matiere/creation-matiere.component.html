@@ -1,18 +1,26 @@
-<p>creation-cours works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<header class="top-menu">
+  <h1>Projet Node Et React</h1>
 
-<!-- creation-cours.component.html -->
+  <nav>
+    <ul>
+      <li><a href="javascript:void(0)" (click)="returnAccueil()">Accueil</a></li>
+      <li><a href="#">Profil</a></li>
+    </ul>
+  </nav>
+</header>
+<body>
 
-<div>
+
   <h2>Créer une matière</h2>
 
   <form (ngSubmit)="onSubmit()">
-    <!-- Champ pour le nom de la matière -->
     <div class="form-group">
       <label for="nomMatiere">Nom de la matière</label>
       <input type="text" class="form-control" id="nomMatiere" name="nomMatiere" [(ngModel)]="nomMatiere" required>
     </div>
 
-    <!-- Champ pour la description -->
     <div class="form-group">
       <label for="descriptionMatiere">Description</label>
       <textarea class="form-control" id="descriptionMatiere" name="descriptionMatiere" [(ngModel)]="descriptionMatiere" required></textarea>
@@ -21,7 +29,14 @@
     <!-- Bouton de validation -->
     <button type="submit" class="btn btn-primary">Valider</button>
   </form>
-</div>
+
+  </body>
+
+<footer class="footer">
+  <p>&copy; Projet Node Et React. Tous droits réservés.</p>
+  <p>Alexandre Bernard , Jeremy Beugnon et Théo Besse</p>
+
+</footer>
+</html>
 
 
-<button (click)="returnAccueil()">Retourner à l'accueil</button>

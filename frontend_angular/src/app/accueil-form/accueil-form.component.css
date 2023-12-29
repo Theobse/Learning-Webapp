@@ -1,0 +1,117 @@
+/* Réinitialisation des marges et des rembourrages par défaut */
+body, h1, h2, h3, h4, h5, h6, p, ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+/* Styles globaux */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* Ruban supérieur avec des menus */
+.top-menu {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+}
+.top-menu h1 {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.top-menu nav ul {
+  list-style: none;
+}
+
+.top-menu nav ul li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.top-menu nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Ruban vertical à gauche avec des options */
+.side-menu {
+  background-color: #f4f4f4;
+  width: 200px;
+  padding: 20px;
+}
+
+.side-menu ul {
+  list-style: none;
+}
+
+.side-menu ul li {
+  margin-bottom: 10px;
+}
+
+.side-menu ul li a {
+  color: #333;
+  text-decoration: none;
+}
+
+/* Contenu principal */
+.main-content {
+  display: flex;
+  align-items: stretch;
+  padding: 20px;
+}
+
+.content {
+  flex-grow: 1;
+  background-color: #fff;
+  padding: 20px;
+}
+/* Styles pour le bouton de déconnexion */
+.logout-button {
+  position: fixed;
+  bottom: 50px;
+  right: 20px;
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-bottom: 50px;
+
+}
+button {
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #555;
+}
+/* Styles pour le pied de page */
+.footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.left-content {
+  text-align: left;
+}
+
+.right-content {
+  text-align: right;
+}
+
