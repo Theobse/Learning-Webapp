@@ -182,10 +182,6 @@ app.post('/api/CreationCours', async (req, res) => {
 
 
 
-
-
-
-
 // Lancement du serveur
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
