@@ -9,6 +9,8 @@ import {HttpClientModule} from "@angular/common/http";
 import { ConnectionComponent } from './connection/connection.component';
 import {AccueilFormComponent} from "./accueil-form/accueil-form.component";
 import { LessonSelectComponent } from './lesson-select/lesson-select.component';
+import { StatistiqueComponent } from './statistique/statistique.component';
+import { CreationCoursComponent } from './creation-cours/creation-cours.component';
 
 
 @NgModule({
@@ -18,6 +20,8 @@ import { LessonSelectComponent } from './lesson-select/lesson-select.component';
     AccueilFormComponent,
     ConnectionComponent,
     LessonSelectComponent,
+    StatistiqueComponent,
+    CreationCoursComponent,
   ],
   imports: [
     BrowserModule,

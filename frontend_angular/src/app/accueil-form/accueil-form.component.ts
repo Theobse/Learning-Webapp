@@ -15,5 +15,11 @@ export class AccueilFormComponent  {
   seDeconnecter() {
     this.router.navigate(['connection']);
   }
+  redirectToStatistic(){
+    this.router.navigate(['Statistique']);
+  }
+  redirectToCreateCourses(){
+    this.router.navigate(['Creation']);
+  }
 
 }
