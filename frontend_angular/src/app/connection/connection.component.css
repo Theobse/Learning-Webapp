@@ -1,0 +1,135 @@
+/* Ruban supérieur avec des menus */
+.top-menu {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+}
+.top-menu h1 {
+    margin-bottom: 10px;
+    text-align: center;
+}
+.top-menu nav ul {
+    list-style: none;
+}
+
+.top-menu nav ul li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.top-menu nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+.top-menu nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+.top-menu nav ul li {
+    margin-right: 20px;
+}
+/* Styles généraux */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Styles du formulaire */
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Style du bouton */
+
+/* Style du bouton */
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    background-color: #333;
+    color: white; /* Couleur du texte du bouton */
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #2980b9; /* Couleur au survol du bouton */
+}
+
+
+/* Styles du header */
+/* Styles du header */
+
+header {
+    background-color: #333;
+    padding: 20px 0;
+}
+
+.menu {
+    text-align: center;
+}
+
+.menu a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: white; /* Couleur du texte pour les liens */
+}
+
+.menu a:hover {
+    color: #ecf0f1; /* Couleur du texte au survol pour les liens */
+}
+
+
+
+input[type="text"],
+textarea {
+    width: 95%;
+    padding: 8px;
+
+    border-radius: 20px;
+    border: 1px solid #ccc;
+}
+
+/* Styles pour le pied de page */
+.footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.left-content {
+    text-align: left;
+}
+
+.right-content {
+    text-align: right;
+}
