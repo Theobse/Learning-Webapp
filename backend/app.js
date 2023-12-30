@@ -65,11 +65,14 @@ const sequelize = new Sequelize('LearningFactDb', 'LearningDbUser', 'root', {
 app.get('/api/charts', async (req, res) => {
     try {
         const learningPackages = await LearningPackage.findAll({
-            attributes: ['id', 'packageName'],
+            attributes: ['id', 'packageName'], // Sélectionne les attributs à récupérer
             raw: true
         });
 
+        // Récupère les IDs des packages d'apprentissage
         const packageIds = learningPackages.map(learningPackage => learningPackage.id);
+
+        // Compte le nombre de cours pour chaque package
         const courseCounts = await Course.findAll({
             attributes: ['learning_package_id', [Sequelize.fn('COUNT', Sequelize.col('id')), 'courseCount']],
             where: {
@@ -79,20 +82,21 @@ app.get('/api/charts', async (req, res) => {
             raw: true
         });
 
+        // Fusionne les données des packages avec les counts de cours
         const packagesWithCourseCount = learningPackages.map(pkg => {
             const matchingCourseCount = courseCounts.find(course => course.learning_package_id === pkg.id);
             return {
                 ...pkg,
-                courseCount: matchingCourseCount ? matchingCourseCount.courseCount : 0
+                courseCount: matchingCourseCount ? parseInt(matchingCourseCount.courseCount) : 0
             };
         });
 
-        res.status(200).json(packagesWithCourseCount);
+        res.status(200).json(packagesWithCourseCount); // Répond avec les packages et le nombre de cours associés
     } catch (error) {
-        // Gérer les erreurs lors de la récupération des données
         res.status(500).json({ message: 'Erreur lors de la récupération des données.', error: error.message });
     }
 });
+
 
 app.get('/api/learning-package', async (req, res) => {
     try {
@@ -177,6 +181,29 @@ app.post('/api/Cours', async (req, res) => {
     try {
         const newCourse = await Course.create(req.body); // Utiliser Sequelize pour créer un nouveau LearningPackage dans la base de données
         res.status(200).json(newCourse); // Répondre avec le LearningPackage créé en JSON
+    } catch (error) {
+        res.status(500).json({ message: 'Erreur lors de la création du cours.', error: error.message });
+    }
+});
+app.post('/api/Coursv2', async (req, res) => {
+    try {
+        const { title, description, learning_package_id } = req.body;
+
+        const learningPackage = await LearningPackage.findOne({
+            where: { packageName: learning_package_id }
+        });
+
+        if (!learningPackage) {
+            return res.status(404).json({ message: 'Matière non trouvée.' });
+        }
+
+        const newCourse = await Course.create({
+            title: title,
+            description: description,
+            learning_package_id: learningPackage.id
+        });
+
+        res.status(200).json(newCourse);
     } catch (error) {
         res.status(500).json({ message: 'Erreur lors de la création du cours.', error: error.message });
     }

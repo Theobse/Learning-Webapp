@@ -7,7 +7,7 @@ import {catchError, tap} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class CoursService {
-  private apiUrl = 'http://localhost:4200/api/Cours'; // Remplacez par votre URL backend
+  private apiUrl = 'http://localhost:4200/api/Coursv2'; // Remplacez par votre URL backend
 
   constructor(private http: HttpClient) { }
 

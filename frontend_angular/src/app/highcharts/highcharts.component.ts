@@ -20,7 +20,7 @@ export class HighchartsComponent implements OnInit {
   renderChart() {
     this.chart = Highcharts.chart(this.elementRef.nativeElement.querySelector('.chart-container'), {
       chart: {
-        type: 'bar'
+        type: 'bard'
       },
       title: {
         text: 'Nombre de cours par package d\'apprentissage'

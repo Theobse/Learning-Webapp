@@ -11,26 +11,26 @@ import {CoursService} from "./cours.service";
 export class CreationCoursComponent {
   titreCours: string = '';
   descriptionCours: string = '';
-  idMatiereCours: string = '';
+  nomMatiere: string = '';
 
   constructor(private router: Router, private coursService: CoursService) { }
 
   onSubmitCours(): void {
     // Vérification que les champs ne sont pas vides
-    if (this.titreCours.trim() === '' || this.descriptionCours.trim() === '' || this.idMatiereCours.trim() === '') {
+    if (this.titreCours.trim() === '' || this.descriptionCours.trim() === '' || this.nomMatiere.trim() === '') {
       alert('Veuillez remplir tous les champs.');
       return;
     }
 
     // Appel du service pour créer un nouveau cours
-    this.coursService.createCours(this.titreCours, this.descriptionCours, this.idMatiereCours)
+    this.coursService.createCours(this.titreCours, this.descriptionCours, this.nomMatiere)
       .subscribe(
         () => {
           alert('Cours créé avec succès !');
           // Réinitialiser les champs après la création
           this.titreCours = '';
           this.descriptionCours = '';
-          this.idMatiereCours = '';
+          this.nomMatiere = '';
         },
         (error: HttpErrorResponse) => {
           console.error('Erreur lors de la création du cours : ', error);
