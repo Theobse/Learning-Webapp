@@ -209,6 +209,37 @@ app.post('/api/Coursv2', async (req, res) => {
     }
 });
 
+app.get('/api/cours-by-matiere/:matiere', async (req, res) => {
+    try {
+        const matiere = req.params.matiere;
+
+        const learningPackage = await LearningPackage.findOne({
+            where: { packageName: matiere }
+        });
+
+        if (!learningPackage) {
+            return res.status(404).json({ message: 'Aucun cours trouvé pour cette matière.' });
+        }
+
+        const courses = await Course.findAll({
+            where: { learning_package_id: learningPackage.id },
+            attributes: ['title'] // Sélectionner uniquement l'attribut 'title'
+        });
+
+        const courseTitles = courses.map(course => course.title); // Récupérer uniquement les titres
+
+        res.status(200).json(courseTitles);
+    } catch (error) {
+        res.status(500).json({ message: 'Erreur lors de la récupération des cours par matière.', error: error.message });
+    }
+});
+
+
+
+
+
+
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Serveur démarré sur le port ${PORT}`);

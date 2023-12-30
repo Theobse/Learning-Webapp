@@ -12,13 +12,17 @@ export class CreationCoursComponent {
   titreCours: string = '';
   descriptionCours: string = '';
 
+  //menu déroulant matiere
   selectedMatiere: string = '';
   listeMatieres: string[] =[];
+
+  //menu déroulant matiere2
+
 
   constructor(private router: Router, private coursService: CoursService) { }
 
   ngOnInit(): void {
-    this.getLearningPackages(); // Appel à la méthode pour récupérer les packages d'apprentissage au chargement de la page
+    this.getLearningPackages();
   }
 
   getLearningPackages(): void {
@@ -35,7 +39,6 @@ export class CreationCoursComponent {
         }
       );
   }
-
 
   onSubmitCours(): void {
     // Vérification que les champs ne sont pas vides

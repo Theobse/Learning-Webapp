@@ -10,6 +10,7 @@ export class CoursService {
   private apiUrl = 'http://localhost:4200/api/Coursv2';
   private apiUrl1 = 'http://localhost:4200/api/learning-package';
 
+
   constructor(private http: HttpClient) { }
 
   createCours(title: string, description: string, learning_package_id : string): Observable<any> {
@@ -32,4 +33,8 @@ export class CoursService {
       })
     );
   }
+
+
+
+
 }
