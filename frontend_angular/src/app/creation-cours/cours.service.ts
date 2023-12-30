@@ -7,7 +7,8 @@ import {catchError, tap} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class CoursService {
-  private apiUrl = 'http://localhost:4200/api/Coursv2'; // Remplacez par votre URL backend
+  private apiUrl = 'http://localhost:4200/api/Coursv2';
+  private apiUrl1 = 'http://localhost:4200/api/learning-package';
 
   constructor(private http: HttpClient) { }
 
@@ -18,6 +19,14 @@ export class CoursService {
       learning_package_id
     };
     return this.http.post<any>(this.apiUrl, coursData).pipe(
+      catchError((error) => {
+        return throwError(error); // Gérer les erreurs ici si nécessaire
+      })
+    );
+  }
+
+  getLearningPackages(): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrl1).pipe(
       catchError((error) => {
         return throwError(error); // Gérer les erreurs ici si nécessaire
       })
