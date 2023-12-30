@@ -17,12 +17,17 @@ export class CreationCoursComponent {
   listeMatieres: string[] =[];
 
   //menu déroulant matiere2
+  matiereChoisie: string='';
+  listeTTMatieres: string[] =[];
 
+  coursChoisie : string='';
+  listeTTCours : string[] =[];
 
   constructor(private router: Router, private coursService: CoursService) { }
 
   ngOnInit(): void {
     this.getLearningPackages();
+    this.getLearningPackages2();
   }
 
   getLearningPackages(): void {
@@ -64,8 +69,62 @@ export class CreationCoursComponent {
       );
   }
 
+  onDeleteSelectedCourse() {
+    if (!this.coursChoisie) {
+      return;
+    }
+    this.coursService.deleteSelectedCourse(this.coursChoisie)
+      .subscribe(
+        () => {
+          alert('Le cours a été supprimé avec succès !');
+        },
+        (error: HttpErrorResponse) => {
+          console.error('Erreur lors de la suppression du cours : ', error);
+          alert('Erreur lors de la suppression du cours. Veuillez réessayer.');
+        }
+      );
+  }
+
+  getLearningPackages2() {
+    // Appel à votre service pour récupérer les packages d'apprentissage depuis votre API
+    this.coursService.getLearningPackages2()
+      .subscribe(
+        (packages: any[]) => {
+          // Récupération des noms des packages d'apprentissage
+          this.listeTTMatieres = packages.map((pkg) => pkg.packageName);
+        },
+        (error: HttpErrorResponse) => {
+          console.error('Erreur lors de la récupération des packages d\'apprentissage : ', error);
+          // Gérer l'erreur si nécessaire
+        }
+      );
+  }
+
+
+  onFetchCoursForMatiere(): void {
+    if (!this.matiereChoisie) {
+      return;
+    }
+    this.coursService.getCoursByMatiere(this.matiereChoisie)
+      .subscribe(
+        (coursTitles: string[]) => {
+          this.listeTTCours = coursTitles; // Assignez directement les titres des cours à la liste
+        },
+        (error: HttpErrorResponse) => {
+          console.error('Erreur lors de la récupération des cours pour la matière sélectionnée : ', error);
+        }
+      );
+  }
+
+
+
+
+
+
 
   returnAccueil() {
     this.router.navigate(['accueil']);
   }
+
+
 }

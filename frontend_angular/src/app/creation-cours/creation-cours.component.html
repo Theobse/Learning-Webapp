@@ -43,6 +43,34 @@
   </form>
 </div>
 
+<div>
+  <h2>Supprimer un cours</h2>
+
+  <form>
+
+    <!-- Champ pour le nom de la matière (Menu déroulant) -->
+    <div class="form-group">
+      <label for="MatiereCoursId">Nom de la matière</label>
+      <select class="form-control" id="MatiereCoursId" name="MatiereCoursId" [(ngModel)]="matiereChoisie" required>
+        <option *ngFor="let subject of listeTTMatieres" [value]="subject">{{ subject }}</option>
+      </select>
+      <!-- Bouton pour récupérer les cours -->
+      <button type="button" class="btn btn-primary" (click)="onFetchCoursForMatiere()">Récupérer les cours</button>
+    </div>
+
+    <!-- Champ pour le cours de la matière choisie (Menu déroulant) -->
+    <div class="form1">
+      <label for="CoursMatiereId">Cours disponible pour la matière</label>
+      <select class="form-control" id="CoursMatiereId" name="CoursMatiereId" [(ngModel)]="coursChoisie" required>
+        <option *ngFor="let cours of listeTTCours" [value]="cours">{{ cours }}</option>
+      </select>
+      <!-- Bouton pour supprimer le cours sélectionné -->
+      <button type="button" class="btn btn-danger" (click)="onDeleteSelectedCourse()">Supprimer le cours sélectionné</button>
+    </div>
+
+
+  </form>
+</div>
 
 </body>
 

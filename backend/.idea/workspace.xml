@@ -45,7 +45,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/white/OneDrive/Bureau/Node n°4/Learning-Webapp/frontend_angular",
+    "last_opened_file_path": "C:/Users/white/OneDrive/Bureau/Node n°3/Learning-Webapp/backend",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -84,6 +84,7 @@
       <workItem from="1703873647063" duration="1835000" />
       <workItem from="1703882495053" duration="384000" />
       <workItem from="1703945592705" duration="3569000" />
+      <workItem from="1703968907852" duration="410000" />
     </task>
     <servers />
   </component>
@@ -99,6 +100,15 @@
         <option value="$PROJECT_DIR$/learningPackage.model.js" />
         <option value="$PROJECT_DIR$/course.model.js.map" />
         <option value="$PROJECT_DIR$/course.model.js" />
+        <option value="$PROJECT_DIR$/TD1/main.js" />
+        <option value="$PROJECT_DIR$/TD1/main.js.map" />
+        <option value="$PROJECT_DIR$/app.js.map" />
+        <option value="$PROJECT_DIR$/sequelize.js" />
+        <option value="$PROJECT_DIR$/sequelize.js.map" />
+        <option value="$PROJECT_DIR$/course.model.js" />
+        <option value="$PROJECT_DIR$/course.model.js.map" />
+        <option value="$PROJECT_DIR$/learningPackage.model.js" />
+        <option value="$PROJECT_DIR$/learningPackage.model.js.map" />
       </list>
     </option>
   </component>

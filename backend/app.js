@@ -127,6 +127,16 @@ app.get('/api/learning-package', async (req, res) => {
     }
 });
 
+app.get('/api/learning-package2', async (req, res) => {
+    try {
+        const learningPackages = await LearningPackage.findAll();
+
+        res.status(200).json(learningPackages);
+    } catch (error) {
+        res.status(500).json({ message: 'Erreur lors de la récupération des LearningPackages.', error: error.message });
+    }
+});
+
 app.post('/api/learning-package', async (req, res) => {
     try {
         const newPackage = await LearningPackage.create(req.body); // Utiliser Sequelize pour créer un nouveau LearningPackage dans la base de données
@@ -231,15 +241,12 @@ app.post('/api/Coursv2', async (req, res) => {
 app.get('/api/cours-by-matiere/:matiere', async (req, res) => {
     try {
         const matiere = req.params.matiere;
-
         const learningPackage = await LearningPackage.findOne({
             where: { packageName: matiere }
         });
-
         if (!learningPackage) {
             return res.status(404).json({ message: 'Aucun cours trouvé pour cette matière.' });
         }
-
         const courses = await Course.findAll({
             where: { learning_package_id: learningPackage.id },
             attributes: ['title'] // Sélectionner uniquement l'attribut 'title'
@@ -255,7 +262,19 @@ app.get('/api/cours-by-matiere/:matiere', async (req, res) => {
 
 
 
-
+app.delete('/api/suppression-cours/:courseTitle', async (req, res) => {
+    try {
+        const courseTitle = req.params.courseTitle;
+        const course = await Course.findOne({ where: { title: courseTitle } });
+        if (!course) {
+            return res.status(404).json({ message: `Cours avec le titre "${courseTitle}" non trouvé.` });
+        }
+        await course.destroy();
+        res.status(200).json({ message: `Cours avec le titre "${courseTitle}" supprimé.` });
+    } catch (error) {
+        res.status(500).json({ message: 'Erreur lors de la suppression du cours.', error: error.message });
+    }
+});
 
 
 
