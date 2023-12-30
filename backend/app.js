@@ -40,10 +40,9 @@ const { Sequelize } = require('sequelize');
 const { LearningPackage } = require('./learningPackage.model');
 const { Course } = require('./course.model'); // Assurez-vous que le modèle est correctement exporté
 
-// Remplacez les informations suivantes par votre configuration de base de données PostgreSQL
 const sequelize = new Sequelize('LearningFactDb', 'LearningDbUser', 'root', {
     host: 'localhost',
-    dialect: 'postgres', // Spécifiez le dialecte comme PostgreSQL
+    dialect: 'postgres',
     port: 5432,
 });
 
@@ -62,29 +61,48 @@ const sequelize = new Sequelize('LearningFactDb', 'LearningDbUser', 'root', {
     }
 })();
 
-
-
-
-
-
-
-
-
-
-app.get('/api/learning-package', async (req, res) => {
+// Récupération des Learning Packages avec leur nombre de courses associées
+app.get('/api/charts', async (req, res) => {
     try {
-        // Utiliser Sequelize pour récupérer tous les éléments de LearningPackage depuis la base de données
-        const learningPackages = await LearningPackage.findAll();
+        const learningPackages = await LearningPackage.findAll({
+            attributes: ['id', 'packageName'],
+            raw: true
+        });
 
-        // Répondre avec les LearningPackages récupérés en JSON
-        res.status(200).json(learningPackages);
+        const packageIds = learningPackages.map(learningPackage => learningPackage.id);
+        const courseCounts = await Course.findAll({
+            attributes: ['learning_package_id', [Sequelize.fn('COUNT', Sequelize.col('id')), 'courseCount']],
+            where: {
+                learning_package_id: packageIds
+            },
+            group: ['learning_package_id'],
+            raw: true
+        });
+
+        const packagesWithCourseCount = learningPackages.map(pkg => {
+            const matchingCourseCount = courseCounts.find(course => course.learning_package_id === pkg.id);
+            return {
+                ...pkg,
+                courseCount: matchingCourseCount ? matchingCourseCount.courseCount : 0
+            };
+        });
+
+        res.status(200).json(packagesWithCourseCount);
     } catch (error) {
-        // Gérer les erreurs lors de la récupération des LearningPackages
-        res.status(500).json({ message: 'Erreur lors de la récupération des LearningPackages.', error: error.message });
+        // Gérer les erreurs lors de la récupération des données
+        res.status(500).json({ message: 'Erreur lors de la récupération des données.', error: error.message });
     }
 });
 
+app.get('/api/learning-package', async (req, res) => {
+    try {
+        const learningPackages = await LearningPackage.findAll();
 
+        res.status(200).json(learningPackages);
+    } catch (error) {
+        res.status(500).json({ message: 'Erreur lors de la récupération des LearningPackages.', error: error.message });
+    }
+});
 
 app.post('/api/learning-package', async (req, res) => {
     try {
@@ -94,6 +112,7 @@ app.post('/api/learning-package', async (req, res) => {
         res.status(500).json({ message: 'Erreur lors de la création du LearningPackage.', error: error.message });
     }
 });
+
 
 app.put('/api/learning-package/:id', async (req, res) => {
     try {
@@ -126,7 +145,7 @@ app.put('/api/learning-package/:id', async (req, res) => {
 // Route DELETE pour supprimer un LearningPackage par son ID
 app.delete('/api/package/:packageId', async (req, res) => {
     try {
-        const packageId = req.params.packageId; // Récupérez l'identifiant du LearningPackage depuis les paramètres de l'URL
+        const packageId = req.params.packageId;
 
         // Trouvez le LearningPackage par ID dans la base de données
         const learningPackage = await LearningPackage.findByPk(packageId);
@@ -154,35 +173,15 @@ app.post('/api/CreationMatiere', async (req, res) => {
     }
 });
 
-
-app.post('/api/CreationCours', async (req, res) => {
+app.post('/api/Cours', async (req, res) => {
     try {
-        const { titreCours, descriptionCours, nomMatiere } = req.body;
-
-        const learningPackage = await LearningPackage.findOne({
-            where: { packageName: nomMatiere }
-        });
-
-        if (!learningPackage) {
-            return res.status(404).json({ message: 'Matière non trouvée.' });
-        }
-
-        const newCourse = await Course.create({
-            title: titreCours,
-            description: descriptionCours,
-            learning_package_id: learningPackage.id
-        });
-
-        res.status(200).json(newCourse);
+        const newCourse = await Course.create(req.body); // Utiliser Sequelize pour créer un nouveau LearningPackage dans la base de données
+        res.status(200).json(newCourse); // Répondre avec le LearningPackage créé en JSON
     } catch (error) {
         res.status(500).json({ message: 'Erreur lors de la création du cours.', error: error.message });
     }
 });
 
-
-
-
-// Lancement du serveur
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Serveur démarré sur le port ${PORT}`);

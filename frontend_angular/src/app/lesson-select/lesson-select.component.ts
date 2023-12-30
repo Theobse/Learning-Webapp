@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class LessonSelectComponent implements OnInit {
   lessons: any[] = [];
+  selectedLesson: any;
   constructor(private router: Router, private lessonSelectService: LessonSelectService) { }
   returnAccueil() {
     this.router.navigate(['accueil']);

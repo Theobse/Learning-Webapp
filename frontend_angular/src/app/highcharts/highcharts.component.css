@@ -1,0 +1,61 @@
+.highcharts-container {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.highcharts-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.highcharts-subtitle {
+  font-size: 14px;
+}
+
+.highcharts-xaxis-title {
+  font-size: 14px;
+}
+
+.highcharts-yaxis-title {
+  font-size: 14px;
+}
+
+.highcharts-series-0 .point {
+  fill: #000;
+  stroke: #fff;
+}
+
+.highcharts-series-1 .point {
+  fill: #fff;
+  stroke: #000;
+}
+
+.highcharts-series-2 .point {
+  fill: #00f;
+  stroke: #fff;
+}
+
+.highcharts-series-3 .point {
+  fill: #f00;
+  stroke: #fff;
+}
+
+.highcharts-series-0 .data {
+  fill: #000;
+  stroke: #fff;
+}
+
+.highcharts-series-1 .data {
+  fill: #fff;
+  stroke: #000;
+}
+
+.highcharts-series-2 .data {
+  fill: #00f;
+  stroke: #fff;
+}
+
+.highcharts-series-3 .data {
+  fill: #f00;
+  stroke: #fff;
+}

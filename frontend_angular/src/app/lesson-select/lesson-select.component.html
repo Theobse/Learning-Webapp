@@ -16,9 +16,7 @@
   <ul>
     <li *ngFor="let lesson of lessons">
       {{ lesson.packageName }} <!-- Modifier selon la structure des données reçues -->
-      <span *ngIf="getAvailableCoursesCount(lesson.id) > 0">
-        {{ getAvailableCoursesCount(lesson.id) }} courses available
-      </span>
+
     </li>
   </ul>
 

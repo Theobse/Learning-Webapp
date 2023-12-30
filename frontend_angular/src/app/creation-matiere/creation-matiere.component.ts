@@ -26,7 +26,6 @@ export class CreationMatiereComponent {
       .subscribe(
         () => {
           alert('Matière créée avec succès !');
-          // Réinitialiser les champs après la création
           this.nomMatiere = '';
           this.descriptionMatiere = '';
         },

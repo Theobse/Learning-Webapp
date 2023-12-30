@@ -1,5 +1,3 @@
-// creation-cours.component.ts
-
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -13,26 +11,26 @@ import {CoursService} from "./cours.service";
 export class CreationCoursComponent {
   titreCours: string = '';
   descriptionCours: string = '';
-  nomMatiere: string = '';
+  idMatiereCours: string = '';
 
   constructor(private router: Router, private coursService: CoursService) { }
 
   onSubmitCours(): void {
     // Vérification que les champs ne sont pas vides
-    if (this.titreCours.trim() === '' || this.descriptionCours.trim() === '' || this.nomMatiere.trim() === '') {
+    if (this.titreCours.trim() === '' || this.descriptionCours.trim() === '' || this.idMatiereCours.trim() === '') {
       alert('Veuillez remplir tous les champs.');
       return;
     }
 
     // Appel du service pour créer un nouveau cours
-    this.coursService.createCours(this.titreCours, this.descriptionCours, this.nomMatiere)
+    this.coursService.createCours(this.titreCours, this.descriptionCours, this.idMatiereCours)
       .subscribe(
         () => {
           alert('Cours créé avec succès !');
           // Réinitialiser les champs après la création
           this.titreCours = '';
           this.descriptionCours = '';
-          this.nomMatiere = '';
+          this.idMatiereCours = '';
         },
         (error: HttpErrorResponse) => {
           console.error('Erreur lors de la création du cours : ', error);
@@ -40,8 +38,6 @@ export class CreationCoursComponent {
         }
       );
   }
-
-
 
   returnAccueil() {
     this.router.navigate(['accueil']);

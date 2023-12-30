@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import {catchError, tap} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CoursService {
-  private apiUrl = 'http://localhost:4200/api'; // Remplacez par votre URL backend
+  private apiUrl = 'http://localhost:4200/api/Cours'; // Remplacez par votre URL backend
 
   constructor(private http: HttpClient) { }
 
@@ -17,7 +17,7 @@ export class CoursService {
       description,
       learning_package_id
     };
-    return this.http.post<any>(`${this.apiUrl}/CreationCours`, coursData).pipe(
+    return this.http.post<any>(this.apiUrl, coursData).pipe(
       catchError((error) => {
         return throwError(error); // Gérer les erreurs ici si nécessaire
       })
