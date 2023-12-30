@@ -11,7 +11,6 @@
   </nav>
 </header>
 
-
 <body>
 <div>
   <h2>Créer un cours</h2>
@@ -37,26 +36,30 @@
       </select>
     </div>
 
-
     <!-- Bouton de validation -->
     <button type="submit" class="btn btn-primary">Valider</button>
   </form>
 </div>
 
+<div style="margin-top: 50px;"></div>
+
 <div>
   <h2>Supprimer un cours</h2>
 
   <form>
-
     <!-- Champ pour le nom de la matière (Menu déroulant) -->
     <div class="form-group">
       <label for="MatiereCoursId">Nom de la matière</label>
       <select class="form-control" id="MatiereCoursId" name="MatiereCoursId" [(ngModel)]="matiereChoisie" required>
         <option *ngFor="let subject of listeTTMatieres" [value]="subject">{{ subject }}</option>
       </select>
+      <div style="margin-top: 20px;"></div>
       <!-- Bouton pour récupérer les cours -->
       <button type="button" class="btn btn-primary" (click)="onFetchCoursForMatiere()">Récupérer les cours</button>
     </div>
+
+    <!-- Espacement -->
+    <div style="margin-top: 30px;"></div>
 
     <!-- Champ pour le cours de la matière choisie (Menu déroulant) -->
     <div class="form1">
@@ -65,21 +68,18 @@
         <option *ngFor="let cours of listeTTCours" [value]="cours">{{ cours }}</option>
       </select>
       <!-- Bouton pour supprimer le cours sélectionné -->
+      <div style="margin-top: 20px;"></div>
       <button type="button" class="btn btn-danger" (click)="onDeleteSelectedCourse()">Supprimer le cours sélectionné</button>
     </div>
-
-
   </form>
 </div>
-
 </body>
 
 <button (click)="returnAccueil()">Retourner à l'accueil</button>
+
 <footer class="footer">
   <p>&copy; Projet Node Et React. Tous droits réservés.</p>
-  <p>Alexandre Bernard , Jeremy Beugnon et Théo Besse</p>
+  <p>Alexandre Bernard , Jérémy Beugnon et Théo Besse</p>
   <p>ESILV A4 : CDOF1</p>
-
-
 </footer>
 </html>

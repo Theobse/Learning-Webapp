@@ -33,7 +33,7 @@ export class MatiereService {
 
     return this.http.post<any>(`${this.apiUrl}/CreationMatiere`, matiereData).pipe(
       catchError((error) => {
-        return throwError(error); // Gérer les erreurs ici si nécessaire
+        return throwError(error);
       })
     );
   }

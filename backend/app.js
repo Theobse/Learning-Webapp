@@ -175,27 +175,6 @@ app.put('/api/learning-package/:id', async (req, res) => {
 });
 
 
-// Route DELETE pour supprimer un LearningPackage par son ID
-app.delete('/api/package/:packageId', async (req, res) => {
-    try {
-        const packageId = req.params.packageId;
-
-        // Trouvez le LearningPackage par ID dans la base de données
-        const learningPackage = await LearningPackage.findByPk(packageId);
-        if (!learningPackage) {
-            return res.status(404).json({ message: `LearningPackage avec l'ID ${packageId} non trouvé.` });
-        }
-
-        // Supprimez le LearningPackage de la base de données
-        await learningPackage.destroy();
-
-        // Répondre avec un message de réussite
-        res.status(200).json({ message: `LearningPackage avec l'ID ${packageId} supprimé.` });
-    } catch (error) {
-        // Gérer les erreurs lors de la suppression du LearningPackage
-        res.status(500).json({ message: 'Erreur lors de la suppression du LearningPackage.', error: error.message });
-    }
-});
 
 app.post('/api/CreationMatiere', async (req, res) => {
     try {
@@ -275,6 +254,25 @@ app.delete('/api/suppression-cours/:courseTitle', async (req, res) => {
         res.status(500).json({ message: 'Erreur lors de la suppression du cours.', error: error.message });
     }
 });
+
+app.delete('/api/supMatiere/:nomMatiere', async (req, res) => {
+    try {
+        const nomMatiere = req.params.nomMatiere;
+        const matiere = await LearningPackage.findOne({ where: { packageName: nomMatiere } });
+        if (!matiere) {
+            return res.status(404).json({ message: `Matière avec le nom "${nomMatiere}" non trouvée.` });
+        }
+        const courses = await Course.findAll({ where: { learning_package_id: matiere.id } });
+        await Course.destroy({ where: { learning_package_id: matiere.id } });
+        await matiere.destroy();
+        res.status(200).json({ message: `Matière avec le nom "${nomMatiere}" et ses cours associés supprimés.` });
+    } catch (error) {
+        res.status(500).json({ message: 'Erreur lors de la suppression de la matière et de ses cours associés.', error: error.message });
+    }
+});
+
+
+
 
 
 
