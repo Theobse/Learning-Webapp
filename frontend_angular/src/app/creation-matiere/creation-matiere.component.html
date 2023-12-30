@@ -12,25 +12,39 @@
 </header>
 <body>
 
+<h2>Créer une matière</h2>
 
-  <h2>Créer une matière</h2>
+<form (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="nomMatiere">Nom de la matière</label>
+    <input type="text" class="form-control" id="nomMatiere" name="nomMatiere" [(ngModel)]="nomMatiere" required>
+  </div>
 
-  <form (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="nomMatiere">Nom de la matière</label>
-      <input type="text" class="form-control" id="nomMatiere" name="nomMatiere" [(ngModel)]="nomMatiere" required>
-    </div>
+  <div class="form-group">
+    <label for="descriptionMatiere">Description</label>
+    <textarea class="form-control" id="descriptionMatiere" name="descriptionMatiere" [(ngModel)]="descriptionMatiere" required></textarea>
+  </div>
 
-    <div class="form-group">
-      <label for="descriptionMatiere">Description</label>
-      <textarea class="form-control" id="descriptionMatiere" name="descriptionMatiere" [(ngModel)]="descriptionMatiere" required></textarea>
-    </div>
+  <!-- Bouton de validation -->
+  <button type="submit" class="btn btn-primary">Valider</button>
+</form>
 
-    <!-- Bouton de validation -->
-    <button type="submit" class="btn btn-primary">Valider</button>
-  </form>
+<form (ngSubmit)="onSup()">
+  <h2>Supprimer une matière</h2>
 
-  </body>
+  <div class="form-sup">
+    <label for="nomMatiereCours">Nom de la matière</label>
+    <select class="select-matiere" id="nomMatiereCours" name="nomMatiereCours" [(ngModel)]="selectedMatiere" required>
+      <option *ngFor="let matiere of listeMatieres" [value]="matiere">{{ matiere }}</option>
+    </select>
+  </div>
+
+  <button type="submit" class="btn supression">Valider</button>
+
+</form>
+
+
+</body>
 
 <footer class="footer">
   <p>&copy; Projet Node Et React. Tous droits réservés.</p>
@@ -40,5 +54,3 @@
 
 </footer>
 </html>
-
-

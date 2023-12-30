@@ -30,6 +30,25 @@ pool.query('SELECT NOW()', (err, res) => {
 
 
 
+app.delete('/supMatiere/:packageName', async (req, res) => {
+    const packageName = req.params.packageName;
+
+    try {
+        const learningPackage = await LearningPackage.findOne({
+            where: { packageName: packageName }
+        });
+
+        if (!learningPackage) {
+            return res.status(404).json({ message: `LearningPackage avec le nom ${packageName} non trouvé.` });
+        }
+
+        await learningPackage.destroy();
+
+        res.status(200).json({ message: `LearningPackage avec le nom ${packageName} supprimé.` });
+    } catch (error) {
+        res.status(500).json({ message: 'Erreur lors de la suppression du LearningPackage.', error: error.message });
+    }
+});
 
 
 

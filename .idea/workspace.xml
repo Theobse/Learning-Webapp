@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="770e9815-4ac6-4dcf-b44f-03696da9e550" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend_angular/src/app/creation-matiere/creation-matiere.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend_angular/src/app/creation-matiere/creation-matiere.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend_angular/src/app/creation-matiere/creation-matiere.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend_angular/src/app/creation-matiere/creation-matiere.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend_angular/src/app/creation-matiere/creation-matiere.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend_angular/src/app/creation-matiere/creation-matiere.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend_angular/src/app/creation-matiere/matiere.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend_angular/src/app/creation-matiere/matiere.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 4
+}]]></component>
+  <component name="ProjectId" id="2aGwJLSImjCjN2lx77ivqjRQWvH" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/Bernard/Project_node/git/Learning-Webapp/backend/app.js",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "C:\\Users\\Bernard\\Project_node\\git\\Learning-Webapp\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="app.js" type="NodeJSConfigurationType" nameIsGenerated="true" path-to-js-file="backend/app.js" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="770e9815-4ac6-4dcf-b44f-03696da9e550" name="Changes" comment="" />
+      <created>1703958151098</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1703958151098</updated>
+      <workItem from="1703958152109" duration="2962000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/backend/TD1/main.js" />
+        <option value="$PROJECT_DIR$/backend/TD1/main.js.map" />
+        <option value="$PROJECT_DIR$/backend/learningPackage.model.js" />
+        <option value="$PROJECT_DIR$/backend/learningPackage.model.js.map" />
+        <option value="$PROJECT_DIR$/backend/app.js" />
+        <option value="$PROJECT_DIR$/backend/app.js.map" />
+        <option value="$PROJECT_DIR$/backend/course.model.js" />
+        <option value="$PROJECT_DIR$/backend/course.model.js.map" />
+        <option value="$PROJECT_DIR$/backend/sequelize.js" />
+        <option value="$PROJECT_DIR$/backend/sequelize.js.map" />
+      </list>
+    </option>
+  </component>
+</project>

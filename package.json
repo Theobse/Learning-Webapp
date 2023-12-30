@@ -1,5 +1,8 @@
 {
   "dependencies": {
     "ag-grid-angular": "^31.0.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3"
   }
 }
