@@ -4,7 +4,7 @@ Node & react Development
 
 Project by :
   - Théo Besse : Theobse
-  - Alexandre Bernard : Tortoule
+  - Alexandre Bernard : AlexandreBernard1 et Tortoule  
   - Jérémy Beugnon : itsj1
 
 
@@ -16,7 +16,7 @@ En ouvrant l'application, on est dirigé vers la page d'accueil offrant cinq act
   - Créer ou supprimer un cours lié à une matière existante.
   - Accéder à l'interface des questions pour les différentes matières.
   - Consulter les statistiques disponibles
-
+Notre projet a le meilleur affichage avec un zoom de 100% sur le navigateur
 L'interface d'accueil est la suivante : 
 
 ![image](https://github.com/Theobse/Learning-Webapp/assets/149503355/016be02a-9964-4091-910f-7371de2df3d5)

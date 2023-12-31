@@ -48,13 +48,14 @@
 .form-sup h2 {
   font-size: 24px;
   margin-bottom: 10px;
+  margin-left: 20px;
+
 }
 
 /* Style du label */
 .form-sup label {
   display: block;
   margin-bottom: 5px;
-  font-weight: bold;
 }
 
 /* Style de la liste déroulante */
@@ -150,7 +151,6 @@ textarea {
   background-color: #333;
   color: white;
   text-align: center;
-  padding: 10px;
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -167,4 +167,7 @@ textarea {
 
 .right-content {
   text-align: right;
+}
+.body {
+  margin-bottom: 100px; /* Ajoute de la marge en bas du corps */
 }

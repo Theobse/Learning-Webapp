@@ -13,22 +13,20 @@
 
 <body>
 <div>
-  <h2>Créer un cours</h2>
 
   <form (ngSubmit)="onSubmitCours()">
-    <!-- Champ pour le titre du cours -->
+    <h2>Créer un cours</h2>
+
     <div class="form-group">
       <label for="titreCours">Titre du cours</label>
       <input type="text" class="form-control" id="titreCours" name="titreCours" [(ngModel)]="titreCours" required>
     </div>
 
-    <!-- Champ pour la description du cours -->
     <div class="form-group">
       <label for="descriptionCours">Description du cours</label>
       <textarea class="form-control" id="descriptionCours" name="descriptionCours" [(ngModel)]="descriptionCours" required></textarea>
     </div>
 
-    <!-- Champ pour le nom de la matière (Menu déroulant) -->
     <div class="form-group">
       <label for="idMatiereCours">Nom de la matière</label>
       <select class="form-control" id="idMatiereCours" name="idMatiereCours" [(ngModel)]="selectedMatiere" required>
@@ -36,7 +34,6 @@
       </select>
     </div>
 
-    <!-- Bouton de validation -->
     <button type="submit" class="btn btn-primary">Valider</button>
   </form>
 </div>
@@ -44,24 +41,21 @@
 <div style="margin-top: 50px;"></div>
 
 <div>
-  <h2>Supprimer un cours</h2>
 
   <form>
-    <!-- Champ pour le nom de la matière (Menu déroulant) -->
+    <h2>Supprimer un cours</h2>
+
     <div class="form-group">
       <label for="MatiereCoursId">Nom de la matière</label>
       <select class="form-control" id="MatiereCoursId" name="MatiereCoursId" [(ngModel)]="matiereChoisie" required>
         <option *ngFor="let subject of listeTTMatieres" [value]="subject">{{ subject }}</option>
       </select>
       <div style="margin-top: 20px;"></div>
-      <!-- Bouton pour récupérer les cours -->
       <button type="button" class="btn btn-primary" (click)="onFetchCoursForMatiere()">Récupérer les cours</button>
     </div>
 
-    <!-- Espacement -->
     <div style="margin-top: 30px;"></div>
 
-    <!-- Champ pour le cours de la matière choisie (Menu déroulant) -->
     <div class="form1">
       <label for="CoursMatiereId">Cours disponible pour la matière</label>
       <select class="form-control" id="CoursMatiereId" name="CoursMatiereId" [(ngModel)]="coursChoisie" required>
@@ -74,8 +68,6 @@
   </form>
 </div>
 </body>
-
-<button (click)="returnAccueil()">Retourner à l'accueil</button>
 
 <footer class="footer">
   <p>&copy; Projet Node Et React. Tous droits réservés.</p>

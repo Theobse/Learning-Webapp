@@ -12,9 +12,10 @@
 </header>
 <body>
 
-<h2>Créer une matière</h2>
 
 <form (ngSubmit)="onSubmit()">
+  <h2>Créer une matière</h2>
+
   <div class="form-group">
     <label for="nomMatiere">Nom de la matière</label>
     <input type="text" class="form-control" id="nomMatiere" name="nomMatiere" [(ngModel)]="nomMatiere" required>
@@ -25,7 +26,6 @@
     <textarea class="form-control" id="descriptionMatiere" name="descriptionMatiere" [(ngModel)]="descriptionMatiere" required></textarea>
   </div>
 
-  <!-- Bouton de validation -->
   <button type="submit" class="btn btn-primary">Valider</button>
 </form>
 
@@ -42,8 +42,6 @@
   <button type="submit" class="btn supression">Valider</button>
 
 </form>
-
-
 </body>
 
 <footer class="footer">
