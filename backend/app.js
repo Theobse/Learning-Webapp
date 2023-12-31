@@ -242,6 +242,7 @@ app.post('/api/Cours', async (req, res) => {
         res.status(500).json({ message: 'Erreur lors de la création du cours.', error: error.message });
     }
 });
+
 app.post('/api/Coursv2', async (req, res) => {
     try {
         const { title, description, learning_package_id } = req.body;

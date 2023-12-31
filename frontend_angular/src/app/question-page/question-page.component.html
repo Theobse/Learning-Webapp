@@ -12,6 +12,10 @@
 </header>
 
 <body>
+<div *ngFor="let question of questions">
+  <h3>{{ question.Question }}</h3>
+  <p>{{ question.Answer }}</p>
+</div>
 </body>
 
 <button (click)="returnAccueil()">Retourner à l'accueil</button>

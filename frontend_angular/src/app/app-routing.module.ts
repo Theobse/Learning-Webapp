@@ -13,7 +13,7 @@ import { HighchartsComponent } from './highcharts/highcharts.component';
 import { QuestionPageComponent } from "./question-page/question-page.component";
 
 const routes: Routes = [
-  { path: '', redirectTo: 'connection', pathMatch: 'full' },
+  { path: '', redirectTo: 'accueil', pathMatch: 'full' },
   { path:'lesson-list', component: LessonListPageComponent },
   { path: 'accueil', component: AccueilFormComponent },
   { path: 'connection', component: ConnectionComponent },
@@ -22,7 +22,7 @@ const routes: Routes = [
   { path: 'CreationCours', component: CreationCoursComponent },
   { path: 'CreationMatiere', component: CreationMatiereComponent },
   { path: 'grid', component: AgGridComponent },
-  { path: 'QuestionPageComponent', component: QuestionPageComponent }
+  { path: 'QuestionPage', component: QuestionPageComponent }
 ];
 
 @NgModule({

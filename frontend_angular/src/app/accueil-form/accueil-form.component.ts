@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
   templateUrl: './accueil-form.component.html',
   styleUrls: ['./accueil-form.component.css']
 })
+
 export class AccueilFormComponent  {
   constructor(private router: Router) {}
 
@@ -29,6 +30,6 @@ export class AccueilFormComponent  {
   }
 
   redirectToQuestions() {
-    this.router.navigate(['QuestionPageComponent'])
+    this.router.navigate(['QuestionPage'])
   }
 }
