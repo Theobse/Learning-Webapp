@@ -16,6 +16,7 @@ import {AgGridComponent} from "./ag-grid/ag-grid.component";
 import { CreationMatiereComponent } from './creation-matiere/creation-matiere.component';
 import { HighchartsComponent } from './highcharts/highcharts.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { QuestionPageComponent } from './question-page/question-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +28,8 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
     CreationCoursComponent,
     AgGridComponent,
     CreationMatiereComponent,
-    HighchartsComponent
+    HighchartsComponent,
+    QuestionPageComponent
   ],
   imports: [
     BrowserModule,

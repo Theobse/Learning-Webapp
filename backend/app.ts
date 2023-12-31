@@ -1,5 +1,6 @@
 import * as express from 'express';
-import {Request, Response} from 'express';
+import  {Request, Response } from 'express';
+import { Question } from "./question.model";
 
 const app = express();
 app.use(express.json()); // => to parse request body with http header "content-type": "application/json"

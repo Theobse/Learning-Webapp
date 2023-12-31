@@ -28,5 +28,7 @@ export class AccueilFormComponent  {
     this.router.navigate(['accueil']);
   }
 
-
+  redirectToQuestions() {
+    this.router.navigate(['QuestionPageComponent'])
+  }
 }

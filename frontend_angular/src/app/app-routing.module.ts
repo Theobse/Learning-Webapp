@@ -10,6 +10,7 @@ import { AgGridComponent } from './ag-grid/ag-grid.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { CreationMatiereComponent } from './creation-matiere/creation-matiere.component';
 import { HighchartsComponent } from './highcharts/highcharts.component';
+import { QuestionPageComponent } from "./question-page/question-page.component";
 
 const routes: Routes = [
   { path: '', redirectTo: 'connection', pathMatch: 'full' },
@@ -20,9 +21,10 @@ const routes: Routes = [
   { path: 'statistique', component: StatistiqueComponent },
   { path: 'CreationCours', component: CreationCoursComponent },
   { path: 'CreationMatiere', component: CreationMatiereComponent },
-  { path: 'grid', component: AgGridComponent }
-
+  { path: 'grid', component: AgGridComponent },
+  { path: 'QuestionPageComponent', component: QuestionPageComponent }
 ];
+
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { useHash: true }),

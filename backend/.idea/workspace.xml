@@ -5,11 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="668f1a3b-35ef-4884-8f6b-2b6879ce72f1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/question.model.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TD1/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/TD1/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend_angular/src/app/creation-cours/creation-cours.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend_angular/src/app/creation-cours/creation-cours.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend_angular/src/app/creation-cours/creation-cours.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend_angular/src/app/creation-cours/creation-cours.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend_angular/src/app/creation-matiere/matiere.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend_angular/src/app/creation-matiere/matiere.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/app.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/course.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/course.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/learningPackage.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/learningPackage.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sequelize.js" beforeDir="false" afterPath="$PROJECT_DIR$/sequelize.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend_angular/src/app/accueil-form/accueil-form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend_angular/src/app/accueil-form/accueil-form.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend_angular/src/app/accueil-form/accueil-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend_angular/src/app/accueil-form/accueil-form.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend_angular/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend_angular/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend_angular/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend_angular/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend_angular/src/app/creation-matiere/creation-matiere.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend_angular/src/app/creation-matiere/creation-matiere.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,14 +54,14 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/white/OneDrive/Bureau/Node n°3/Learning-Webapp/frontend_angular",
+    "last_opened_file_path": "C:/Users/Besse/Desktop/Learning-Webapp/frontend_angular",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "settings.typescriptcompiler",
-    "ts.external.directory.path": "C:\\Users\\white\\OneDrive\\Bureau\\Node\\Learning-Webapp\\backend\\node_modules\\typescript\\lib",
+    "ts.external.directory.path": "C:\\Users\\Besse\\Desktop\\Learning-Webapp\\backend\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -87,6 +96,7 @@
       <workItem from="1703968907852" duration="410000" />
       <workItem from="1703969420490" duration="25000" />
       <workItem from="1703969446211" duration="1637000" />
+      <workItem from="1704014530915" duration="5115000" />
     </task>
     <servers />
   </component>
@@ -111,6 +121,8 @@
         <option value="$PROJECT_DIR$/course.model.js.map" />
         <option value="$PROJECT_DIR$/learningPackage.model.js" />
         <option value="$PROJECT_DIR$/learningPackage.model.js.map" />
+        <option value="$PROJECT_DIR$/question.model.js" />
+        <option value="$PROJECT_DIR$/question.model.js.map" />
       </list>
     </option>
   </component>

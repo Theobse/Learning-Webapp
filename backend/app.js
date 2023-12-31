@@ -58,6 +58,7 @@ app.delete('/supMatiere/:packageName', async (req, res) => {
 const { Sequelize } = require('sequelize');
 const { LearningPackage } = require('./learningPackage.model');
 const { Course } = require('./course.model'); // Assurez-vous que le modèle est correctement exporté
+const { Question } = require('./question.model');
 
 const sequelize = new Sequelize('LearningFactDb', 'LearningDbUser', 'root', {
     host: 'localhost',
@@ -75,6 +76,9 @@ const sequelize = new Sequelize('LearningFactDb', 'LearningDbUser', 'root', {
 
         await Course.sync({ alter: true });
         console.log('La synchronisation de Course avec la base de données a réussi.');
+
+        await Question.sync({ alter: true });
+        console.log('La synchronisation de Question avec la base de données a réussi.');
     } catch (error) {
         console.error('Erreur lors de la synchronisation avec la base de données :', error);
     }
@@ -174,6 +178,14 @@ app.put('/api/learning-package/:id', async (req, res) => {
     }
 });
 
+app.post('/api/CreationQuestion', async (req, res) => {
+    try {
+        const newPackage = await Question.create(req.body); // Utiliser Sequelize pour créer un nouveau LearningPackage dans la base de données
+        res.status(200).json(newPackage); // Répondre avec le LearningPackage créé en JSON
+    } catch (error) {
+        res.status(500).json({ message: 'Erreur lors de la création de la question.', error: error.message });
+    }
+});
 
 
 app.post('/api/CreationMatiere', async (req, res) => {
@@ -275,14 +287,7 @@ app.delete('/api/supMatiere/:nomMatiere', async (req, res) => {
 
 
 
-
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Serveur démarré sur le port ${PORT}`);
 });
-
-
-
-
-
-
