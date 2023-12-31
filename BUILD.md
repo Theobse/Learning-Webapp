@@ -1,9 +1,9 @@
-Node & react Development
+# Node & react Development
 
 Project by :
 
 Théo Besse : Theobse
-Alexandre Bernard : Tortoule
+Alexandre Bernard : AlexandreBernard1 et Tortoule
 Jérémy Beugnon : itsj1
 
 
@@ -79,8 +79,8 @@ TABLESPACE pg_default;
 ALTER TABLE IF EXISTS public.course
     OWNER to "LearningDbUser";
 
-Pour l'insertion de donnée nous avons : 
-
+Pour l'insertion de données, il est envisageable d'importer des fichiers CSV fournis avec l'application. 
+Par ailleurs, l'application offre la possibilité de créer manuellement toutes les données requises à l'aide de ses fonctionnalités intégrées.
 
 
     
