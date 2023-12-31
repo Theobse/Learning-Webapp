@@ -267,6 +267,16 @@ app.post('/api/Coursv2', async (req, res) => {
     }
 });
 
+app.get('/api/cours/', async (req, res) => {
+    try {
+        const listcours = await Course.findAll();
+        res.status(200).json(listcours)
+    }
+    catch (error) {
+        res.status(400).json({message: 'Erreur lors de la récupération des cours'});
+    }
+});
+
 app.get('/api/cours-by-matiere/:matiere', async (req, res) => {
     try {
         const matiere = req.params.matiere;
