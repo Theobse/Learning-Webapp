@@ -180,13 +180,50 @@ app.put('/api/learning-package/:id', async (req, res) => {
 
 app.post('/api/CreationQuestion', async (req, res) => {
     try {
-        const newPackage = await Question.create(req.body); // Utiliser Sequelize pour créer un nouveau LearningPackage dans la base de données
-        res.status(200).json(newPackage); // Répondre avec le LearningPackage créé en JSON
-    } catch (error) {
+        const newQuestion = await Question.create(req.body); // Utiliser Sequelize pour créer un nouveau LearningPackage dans la base de données
+        res.status(200).json(newQuestion); // Répondre avec le LearningPackage créé en JSON
+    }
+    catch (error) {
         res.status(500).json({ message: 'Erreur lors de la création de la question.', error: error.message });
     }
 });
 
+app.delete('/api/DeleteQuestion/:id', async (req, res) => {
+    const questionID = req.params.id; // Utilisez "id" au lieu de "QuestionID"
+
+    try {
+        const question = await Question.findOne({
+            where: { QuestionID: questionID }
+        });
+
+        if (!question) { // Utilisez "question" au lieu de "learningPackage"
+            return res.status(404).json({ message: `Question avec l'id ${questionID} non trouvé.` });
+        }
+
+        await question.destroy();
+
+        res.status(200).json({ message: `Question avec l'id ${questionID} supprimé.` });
+    }
+    catch (error) {
+        res.status(500).json({ message: 'Erreur lors de la suppression de la question.', error: error.message });
+    }
+});
+
+
+app.get('/api/QuestionsByLearningPackage/:learningPackageId', async (req, res) => {
+    const learningPackageId = req.params.learningPackageId;
+
+    try {
+        const questions = await Question.findAll({
+            attributes: ['QuestionID', 'Question', 'Answer'],
+            where: { LearningPackageID: learningPackageId }
+        });
+
+        res.status(200).json(questions);
+    } catch (error) {
+        res.status(500).json({ message: 'Erreur lors de la récupération des questions.', error: error.message });
+    }
+});
 
 app.post('/api/CreationMatiere', async (req, res) => {
     try {
