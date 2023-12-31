@@ -1,9 +1,11 @@
 import { DataTypes, Model } from 'sequelize';
-import sequelize from './sequelize'; // Importez la configuration Sequelize
+import sequelize from './sequelize';
+import { Course } from './course.model'; // Importez le modèle Course
+
 
 class Question extends Model {
     public QuestionID!: number;
-    public LearningPackageID!: number;
+    public CourseID!: number;
     public Question!: string;
     public Answer!: string;
 
@@ -17,9 +19,13 @@ Question.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        LearningPackageID: {
+        CourseID: {
             type: DataTypes.INTEGER,
             primaryKey: false,
+            references: {
+                model: Course, // Le modèle de la table à laquelle vous faites référence
+                key: 'id', // La clé primaire de la table à laquelle vous faites référence
+            },
         },
         Question: {
             type: DataTypes.TEXT,
@@ -38,18 +44,5 @@ Question.init(
     }
 );
 
-export { Question }; // Exportez le modèle de cette façon
-
-/*
-const express = require('express');
-const app = express();
-
-// Endpoint pour récupérer une question par ID
-app.get('/api/questions/:id', (req, res) => {
-    const questionId = req.params.id;
-    // Récupérez la question depuis la base de données en utilisant l'ID
-    // Ensuite, renvoyez la question au format JSON
-    res.json({ question: 'Quelle est la capitale de la France ?', id: questionId });
-});
- */
+export { Question };
 

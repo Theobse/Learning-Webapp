@@ -6,11 +6,16 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class QuestionService {
-  private apiUrl = 'http://localhost:3000'; // Remplacez par l'URL de votre API
+  private apiUrl = 'http://localhost:4200'; // Remplacez par l'URL de votre API
 
   constructor(private http: HttpClient) {}
 
   getQuestionsByLearningPackage(learningPackageId: number): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/api/QuestionsByLearningPackage/${learningPackageId}`);
   }
+
+  getAllCourse(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/api/cours/`);
+  }
+
 }
