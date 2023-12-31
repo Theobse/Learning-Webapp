@@ -3,10 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Ma Web App</title>
-  <!-- Ajoutez les liens vers les bibliothèques externes nécessaires ici -->
 </head>
 <body>
-<!-- Ruban supérieur avec des menus -->
 <header class="top-menu">
   <h1>Projet Node Et React</h1>
 
@@ -14,27 +12,22 @@
     <ul>
       <li><a href="javascript:void(0)" (click)="returnAccueil()">Accueil</a></li>
       <li><a href="#">Profil</a></li>
-      <!-- Ajoutez d'autres options de menu selon vos besoins -->
     </ul>
   </nav>
 </header>
 
-<!-- Ruban vertical à gauche avec des options -->
 <aside class="side-menu">
   <ul>
     <li><a href="javascript:void(0)" (click)="redirectToSelectPage()">Voir nos cours</a></li>
-    <li><a href="javascript:void(0)" (click)="redirectToCreateCourses()">Création de Matière</a></li>
-    <li><a href="javascript:void(0)" (click)="redirectToCreateCours()">Création de Cours</a></li>
+    <li><a href="javascript:void(0)" (click)="redirectToCreateCourses()">Création ou supression des Matière</a></li>
+    <li><a href="javascript:void(0)" (click)="redirectToCreateCours()">Création ou ou supression des Cours</a></li>
     <li><a href="javascript:void(0)" (click)="redirectToQuestions()">Question</a></li>
     <li><a href="javascript:void(0)" (click)="redirectToStatistic()">Statistique</a></li>
-    <!-- Ajoutez d'autres options latérales ici -->
   </ul>
 </aside>
 
-<!-- Contenu principal -->
 <main class="main-content">
   <div class="content">
-    <!-- L'emplacement où le contenu de la page apparaîtra -->
   </div>
   <button class="logout-button" (click)="seDeconnecter()">Se déconnecter</button>
 

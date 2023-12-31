@@ -6,9 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="770e9815-4ac6-4dcf-b44f-03696da9e550" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend_angular/src/app/creation-cours/creation-cours.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend_angular/src/app/creation-cours/creation-cours.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend_angular/src/app/accueil-form/accueil-form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend_angular/src/app/accueil-form/accueil-form.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend_angular/src/app/creation-cours/creation-cours.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend_angular/src/app/creation-cours/creation-cours.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend_angular/src/app/creation-matiere/creation-matiere.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend_angular/src/app/creation-matiere/creation-matiere.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend_angular/src/app/creation-matiere/creation-matiere.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend_angular/src/app/creation-matiere/creation-matiere.component.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +63,7 @@
       <option name="presentableId" value="Default" />
       <updated>1703958151098</updated>
       <workItem from="1703958152109" duration="3825000" />
-      <workItem from="1704025892013" duration="4903000" />
+      <workItem from="1704025892013" duration="6508000" />
     </task>
     <servers />
   </component>
