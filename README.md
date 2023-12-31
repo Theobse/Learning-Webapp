@@ -28,6 +28,7 @@ Nous allons voir maintenant plus en détails chaque foncionnalitée.
 Pour consulter les matières disponibles ainsi que les cours qui leur sont associés, l'interface fonctionne comme suit : en sélectionnant une matière, une liste des cours disponibles pour cette matière s'affiche. Ensuite, l'utilisateur peut choisir le cours qu'il souhaite consulter parmi cette liste.
 
 Voici un apercu de l'interface pour cette fonctionnalité :
+![image](https://github.com/Theobse/Learning-Webapp/assets/149503355/cf16afdf-d12d-40e4-a414-ef767b6b510c)
 
 # Créer ou supprimer une matière avec tous ses cours associés
 Pour ajouter ou retirer une matière et tous ses cours associés, notre interface est divisée en deux sections distinctes : une pour l'ajout et une pour la suppression.
@@ -51,11 +52,18 @@ Voici un aperçu de l'interface pour cette fonctionnalité :
 ![image](https://github.com/Theobse/Learning-Webapp/assets/149503355/762eb05a-2048-497e-a7fc-43c5ec4b0d22)
 ![image](https://github.com/Theobse/Learning-Webapp/assets/149503355/914c0d07-a201-42cf-97e7-2bff29b2b46e)
 
+# Accéder à l'interface des questions pour les différentes matières.
+Cette section de l'application offre la possibilité de créer et supprimer des questions relatives à diverses matières. De plus, elle permet d'afficher l'ensemble des questions pour une matière spécifique, offrant ainsi à l'utilisateur la chance d'approfondir ses connaissances sur ces sujets.
+
+Voici un aperçu de l'interface pour cette fonctionnalité :
+
+
 # Consulter les statistiques disponibles
 Pour consulter les statistiques disponibles, l'utilisateur n'a pas besoin d'effectuer d'action particulière. Il lui suffit d'étudier les graphiques générés à l'aide de Highcharts sur la page dédiée aux statistiques.
 
 Voici la page des statistiques  :
 
+![image](https://github.com/Theobse/Learning-Webapp/assets/149503355/40097c50-02a4-46da-9b84-6465edf9331f)
 
 
 Après avoir travaillé sur les fonctionnalités antérieures, nous avons tenté de mettre en place une page de connexion. Malheureusement, bien que l'interface de connexion ait été conçue, le développement du backend n'a pas été réalisé, ce qui se traduit par une interface frontend nous ramenant à la page d'accueil sans demande de login ni de mot de passe. À ce jour, cette fonctionnalité est en suspens.
