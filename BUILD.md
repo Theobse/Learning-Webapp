@@ -6,7 +6,7 @@ Théo Besse : Theobse
 Alexandre Bernard : AlexandreBernard1 et Tortoule
 Jérémy Beugnon : itsj1
 
-
+Pour avoir accéder à la web application, il faut d'abord télécharger ce Github puis créer la base de donée comme indiqué ci-dessous puis exécuter le backend et le frontend.
 Ce projet a besoin d'une base de donnée afin de fonctionner. 
 
 Pour cela, nous utilisons le postgresql afin de gérer la base de donnée.
@@ -82,5 +82,8 @@ ALTER TABLE IF EXISTS public.course
 Pour l'insertion de données, il est envisageable d'importer des fichiers CSV fournis avec l'application. 
 Par ailleurs, l'application offre la possibilité de créer manuellement toutes les données requises à l'aide de ses fonctionnalités intégrées.
 
-
+Une fois que la base de donnée a été crée, nous pouvons lancer le backend et le frontend :
+    - Le backend s'exécute le fichier Node app.js au path backend/app.js
+    - Le frontend s'exécute avec npm en faisan "ng serve" dans /frontend/
+    
     
