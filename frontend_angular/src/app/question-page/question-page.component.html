@@ -13,19 +13,40 @@
 </header>
 
 <body>
-  <label for="selectCours">Sélectionner un cours :</label>
-  <select id="selectCours" [(ngModel)]="selectedCourseIdVariable" (change)="onCourseSelectionChange()">
-    <option value="" disabled selected>Sélectionnez un cours</option>
-    <option *ngFor="let course of courseList" [value]="course.id">{{ course.title }}</option>
-  </select>
+  <div class="form-group">
+    <h2>Sélectionner un cours :</h2>
+    <select class="form-control" id="selectCours" name="selectedCourse" [(ngModel)]="selectedCourseIdVariable">
+      <option value="" disabled selected>cours</option>
+      <option *ngFor="let course of courseList" [value]="course.id">{{ course.title }}</option>
+    </select>
+  </div>
 
-  <!-- Bouton "Valider" associé au menu déroulant -->
-  <button (click)="validerCours()">Valider</button>
+  <div class="form-group">
+    <button (click)="validerCours()">Validation</button>
+  </div>
 
-  <!-- Afficher les questions pour le cours sélectionné-->
-  <div *ngFor="let question of questions">
-    <h3>{{ question.Question }}</h3>
-    <p>{{ question.Answer }}</p>
+  <div>
+
+    <!-- Display the current question -->
+    <div *ngIf="questions.length > 0 && currentQuestionIndex < questions.length">
+      <h2>Question {{ currentQuestionIndex + 1 }}</h2>
+      <p>{{ questions[currentQuestionIndex].Question }}</p>
+      <!-- Add answer options or other question details as needed -->
+
+      <!-- Display buttons for selecting difficulty levels -->
+      <button (click)="selectDifficulty('easy')">Easy</button>
+      <button (click)="selectDifficulty('medium')">Medium</button>
+      <button (click)="selectDifficulty('hard')">Hard</button>
+
+      <!-- Button to move to the next question -->
+      <button (click)="nextQuestion()">Next Question</button>
+    </div>
+
+    <!-- Display a message when all questions are answered -->
+    <div *ngIf="currentQuestionIndex == questions.length">
+      <p>All questions answered. You can reset or go back to the home page.</p>
+      <button (click)="returnAccueil()">Go Back to Home</button>
+    </div>
   </div>
 
 </body>

@@ -12,10 +12,11 @@ export class QuestionPageComponent {
   public questions: Question[] = [];
   public courseList: Course[] = [];
   public selectedCourseIdVariable: number | null = null;
+  public currentQuestionIndex: number = 0;
+  private questionDifficulty: string = ""
 
   constructor (
     private router: Router,
-    private route: ActivatedRoute,
     private questionService: QuestionService
   ) {}
 
@@ -30,18 +31,20 @@ export class QuestionPageComponent {
     );
   }
 
+  nextQuestion() {
+    // Increment the current question index to move to the next question
+    if (this.currentQuestionIndex < this.questions.length - 1) {
+      this.currentQuestionIndex++;
+    }
+  }
+
   returnAccueil() {
     this.router.navigate(['accueil']);
   }
 
-  onCourseSelectionChange(): void {
-    // Gérez ici le changement de sélection de cours
-    // Vous pouvez charger les questions du cours sélectionné en utilisant this.selectedCourseId
-    console.log('Selected Course ID:', this.selectedCourseIdVariable);
-  }
-
   validerCours() {
     const courseID = this.selectedCourseIdVariable;
+    this.currentQuestionIndex = 0;
 
     // Vérifiez si courseID n'est pas null avant d'appeler le service
     if (courseID !== null) {
@@ -55,6 +58,16 @@ export class QuestionPageComponent {
         }
       );
     }
+  }
+
+
+  resetQuestions() {
+    // Reset questions to the original list
+    this.validerCours();
+  }
+
+  selectDifficulty(difficulty: string) {
+    this.questionDifficulty = difficulty;
   }
 }
 

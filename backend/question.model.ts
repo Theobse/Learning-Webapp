@@ -35,6 +35,18 @@ Question.init(
             type: DataTypes.TEXT,
             allowNull: false,
         },
+        Easy: {
+            type: DataTypes.INTEGER,
+            allowNull: true,
+        },
+        Medium: {
+            type: DataTypes.INTEGER,
+            allowNull: true,
+        },
+        Hard: {
+            type: DataTypes.INTEGER,
+            allowNull: true,
+        },
         // Ajoutez d'autres colonnes de modèle ici si nécessaire
     },
     {

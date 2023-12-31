@@ -29,6 +29,18 @@ Question.init({
         type: sequelize_1.DataTypes.TEXT,
         allowNull: false,
     },
+    Easy: {
+        type: sequelize_1.DataTypes.INTEGER,
+        allowNull: true,
+    },
+    Medium: {
+        type: sequelize_1.DataTypes.INTEGER,
+        allowNull: true,
+    },
+    Hard: {
+        type: sequelize_1.DataTypes.INTEGER,
+        allowNull: true,
+    },
     // Ajoutez d'autres colonnes de modèle ici si nécessaire
 }, {
     sequelize: sequelize_2.default,

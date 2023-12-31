@@ -225,6 +225,35 @@ app.get('/api/QuestionsByCourseID/:CourseID', async (req, res) => {
     }
 });
 
+app.put('/api/updateQuestionParameter/:questionId', async (req, res) => {
+    const questionId = req.params.questionId;
+    const { fieldToUpdate, incrementValue } = req.body;
+
+    try {
+        // Récupérez la question existante
+        const existingQuestion = await Question.findByPk(questionId);
+
+        if (!existingQuestion) {
+            return res.status(404).json({ message: 'Question non trouvée.' });
+        }
+
+        // Vérifiez si le champ à mettre à jour existe dans la question
+        if (!existingQuestion[fieldToUpdate]) {
+            return res.status(400).json({ message: `Champ ${fieldToUpdate} à mettre à jour non trouvé dans la question.` });
+        }
+
+        // Incrémente la valeur du champ spécifié
+        existingQuestion[fieldToUpdate] += incrementValue;
+
+        // Enregistrez les modifications dans la base de données
+        await existingQuestion.save();
+
+        res.status(200).json({ message: 'Question mise à jour avec succès.' });
+    } catch (error) {
+        res.status(500).json({ message: 'Erreur lors de la mise à jour de la question.', error: error.message });
+    }
+});
+
 app.post('/api/CreationMatiere', async (req, res) => {
     try {
         const newPackage = await LearningPackage.create(req.body); // Utiliser Sequelize pour créer un nouveau LearningPackage dans la base de données
