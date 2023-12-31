@@ -4,7 +4,7 @@ Node & react Development
 
 Project by :
   - Théo Besse : Theobse
-  - Alexandre Bernard : Tortoule
+  - Alexandre Bernard : AlexandreBernard1 ou Tortoule
   - Jérémy Beugnon : itsj1
 
 
