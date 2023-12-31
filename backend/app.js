@@ -289,6 +289,25 @@ app.get('/api/cours-by-matiere/:matiere', async (req, res) => {
     }
 });
 
+app.get('/api/cours-by-matiere1/:matiere', async (req, res) => {
+    try {
+        const matiere = req.params.matiere;
+        const learningPackage = await LearningPackage.findOne({
+            where: { packageName: matiere }
+        });
+        if (!learningPackage) {
+            return res.status(404).json({ message: 'Aucun cours trouvé pour cette matière.' });
+        }
+        const courses = await Course.findAll({
+            where: { learning_package_id: learningPackage.id },
+            attributes: ['title', 'description'] // Sélectionner à la fois 'title' et 'description'
+        });
+
+        res.status(200).json(courses); // Envoyer tous les cours avec titres et descriptions
+    } catch (error) {
+        res.status(500).json({ message: 'Erreur lors de la récupération des cours par matière.', error: error.message });
+    }
+});
 
 
 app.delete('/api/suppression-cours/:courseTitle', async (req, res) => {

@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {Observable, throwError} from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
 export class LessonSelectService {
   private apiUrl = 'http://localhost:4200/api/learning-package';
+  private apiUrl3  = 'http://localhost:4200/api';
+
 
   constructor(private http: HttpClient) { }
 
@@ -19,4 +21,14 @@ export class LessonSelectService {
       })
     );
   }
+
+  getCoursByMatiere(matiere: string): Observable<any[]> {
+    const url = `${this.apiUrl3}/cours-by-matiere1/${matiere}`;
+    return this.http.get<any[]>(url).pipe(
+      catchError((error: any) => {
+        return throwError(error);
+      })
+    );
+  }
+
 }

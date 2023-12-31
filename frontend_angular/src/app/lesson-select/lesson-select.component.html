@@ -13,21 +13,50 @@
 <body>
 <div>
   <h2>Leçons Disponibles</h2>
-  <ul>
-    <li *ngFor="let lesson of lessons">
-      {{ lesson.packageName }} <!-- Modifier selon la structure des données reçues -->
 
-    </li>
-  </ul>
+  <!-- Votre menu déroulant pour les matières -->
+  <div class="form-group">
+    <label for="selectMatiere">Sélectionner une matière :</label>
+    <select class="form-control" id="selectMatiere" name="selectedMatiere" [(ngModel)]="selectedMatiere">
+      <option *ngFor="let lesson of lessons" [value]="lesson.packageName">{{ lesson.packageName }}</option>
+    </select>
+  </div>
 
+  <!-- Bouton pour rechercher les cours -->
+  <div class="form-group">
+    <button class="btn btn-primary" (click)="doSomething()">Recherche de cours</button>
+  </div>
+
+
+
+  <div *ngIf="listeTTCours.length > 0; else noCourses">
+    <h2>Cours pour la matière sélectionnée</h2>
+    <div style="margin-bottom: 30px;"></div>
+    <ul>
+      <li *ngFor="let course of listeTTCours">
+        <!-- Affichage du titre et de la description du cours -->
+        <h3>{{ course.title }}</h3>
+        <p>{{ course.description }}</p>
+        <hr> <!-- Ajoutez une ligne pour séparer chaque cours -->
+      </li>
+    </ul>
+  </div>
+
+  <!-- Message si aucun cours n'est disponible -->
+  <ng-template #noCourses>
+    <p>Aucun cours disponible pour cette matière</p>
+  </ng-template>
 </div>
+
+
+
+
+
 </body>
 
 <footer class="footer">
   <p>&copy; Projet Node Et React. Tous droits réservés.</p>
   <p>Alexandre Bernard , Jeremy Beugnon et Théo Besse</p>
   <p>ESILV A4 : CDOF1</p>
-
-
 </footer>
 </html>

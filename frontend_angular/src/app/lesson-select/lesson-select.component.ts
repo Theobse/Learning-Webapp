@@ -1,6 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { LessonSelectService } from "./lesson-select.service";
 import { Router } from '@angular/router';
+import {HttpErrorResponse} from "@angular/common/http";
+import { Observable, of } from 'rxjs';
+
+
+interface CourseDetails {
+  title: string;
+  description: string;
+}
 
 @Component({
   selector: 'app-lesson-select',
@@ -9,14 +17,22 @@ import { Router } from '@angular/router';
 })
 export class LessonSelectComponent implements OnInit {
   lessons: any[] = [];
-  selectedLesson: any;
+
+  selectedMatiere: string='';
+  listeTTCours: CourseDetails[] = [];
+
   constructor(private router: Router, private lessonSelectService: LessonSelectService) { }
+
+
   returnAccueil() {
     this.router.navigate(['accueil']);
   }
+
+
   ngOnInit(): void {
     this.getLessons(); // Appel de la méthode pour récupérer les leçons au chargement du composant
   }
+
 
   getLessons(): void {
     this.lessonSelectService.getAllLessons()
@@ -29,9 +45,26 @@ export class LessonSelectComponent implements OnInit {
         }
       );
   }
-  getAvailableCoursesCount(lessonId: number): number {
 
-    return 0;
+  doSomething(): void {
+    if (!this.selectedMatiere) {
+      return;
+    }
+    this.lessonSelectService.getCoursByMatiere(this.selectedMatiere)
+      .subscribe(
+        (cours: any[]) => {
+          this.listeTTCours = cours.map((course: any) => {
+            return { title: course.title, description: course.description };
+          });
+          console.log('Cours associés à la matière sélectionnée : ', this.listeTTCours);
+        },
+        (error: any) => {
+          console.error('Erreur lors de la récupération des cours pour la matière sélectionnée : ', error);
+        }
+      );
   }
 
+
+
 }
+
