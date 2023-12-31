@@ -6,7 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="668f1a3b-35ef-4884-8f6b-2b6879ce72f1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TD1/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/TD1/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/course.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/course.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/learningPackage.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/learningPackage.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/question.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/question.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sequelize.js" beforeDir="false" afterPath="$PROJECT_DIR$/sequelize.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend_angular/src/app/lesson-select/lesson-select.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend_angular/src/app/lesson-select/lesson-select.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend_angular/src/app/lesson-select/lesson-select.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend_angular/src/app/lesson-select/lesson-select.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend_angular/src/app/lesson-select/lesson-select.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend_angular/src/app/lesson-select/lesson-select.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,14 +50,14 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/Besse/Desktop/Learning-Webapp/frontend_angular",
+    "last_opened_file_path": "C:/Users/white/OneDrive/Bureau/Node n°4/Learning-Webapp/frontend_angular",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "settings.typescriptcompiler",
-    "ts.external.directory.path": "C:\\Users\\Besse\\Desktop\\Learning-Webapp\\backend\\node_modules\\typescript\\lib",
+    "ts.external.directory.path": "C:\\Users\\white\\OneDrive\\Bureau\\Node n°4\\Learning-Webapp\\backend\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -85,6 +93,7 @@
       <workItem from="1703969420490" duration="25000" />
       <workItem from="1703969446211" duration="1637000" />
       <workItem from="1704014530915" duration="6309000" />
+      <workItem from="1704025953432" duration="2818000" />
     </task>
     <servers />
   </component>
