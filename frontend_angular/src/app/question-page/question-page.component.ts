@@ -10,8 +10,8 @@ import { QuestionService } from './question-page.service';
 
 export class QuestionPageComponent {
   public questions: Question[] = [];
-  public selectedCourseId: number | null = null;
   public courseList: Course[] = [];
+  public selectedCourseIdVariable: number | null = null;
 
   constructor (
     private router: Router,
@@ -28,22 +28,6 @@ export class QuestionPageComponent {
         console.error('Erreur lors de la récupération des cours', error);
       }
     );
-
-    // Récupérez l'ID du LearningPackage à partir de la route
-    const learningPackageId = this.route.snapshot.paramMap.get('learningPackageId');
-
-    // Vérifiez si learningPackageId n'est pas null avant d'appeler le service
-    if (learningPackageId !== null) {
-      // Utilisez le service pour récupérer les questions
-      this.questionService.getQuestionsByLearningPackage(+learningPackageId).subscribe(
-        (data) => {
-          this.questions = data;
-        },
-        (error) => {
-          console.error('Erreur lors de la récupération des questions', error);
-        }
-      );
-    }
   }
 
   returnAccueil() {
@@ -53,7 +37,24 @@ export class QuestionPageComponent {
   onCourseSelectionChange(): void {
     // Gérez ici le changement de sélection de cours
     // Vous pouvez charger les questions du cours sélectionné en utilisant this.selectedCourseId
-    console.log('Selected Course ID:', this.selectedCourseId);
+    console.log('Selected Course ID:', this.selectedCourseIdVariable);
+  }
+
+  validerCours() {
+    const courseID = this.selectedCourseIdVariable;
+
+    // Vérifiez si courseID n'est pas null avant d'appeler le service
+    if (courseID !== null) {
+      // Utilisez le service pour récupérer les questions
+      this.questionService.getQuestionsByCourseID(+courseID).subscribe(
+        (data) => {
+          this.questions = data;
+        },
+        (error) => {
+          console.error('Erreur lors de la récupération des questions', error);
+        }
+      );
+    }
   }
 }
 

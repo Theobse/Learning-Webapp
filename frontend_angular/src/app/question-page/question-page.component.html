@@ -14,16 +14,19 @@
 
 <body>
   <label for="selectCours">Sélectionner un cours :</label>
-  <select id="selectCours" [(ngModel)]="selectedCourseId" (change)="onCourseSelectionChange()">
+  <select id="selectCours" [(ngModel)]="selectedCourseIdVariable" (change)="onCourseSelectionChange()">
     <option value="" disabled selected>Sélectionnez un cours</option>
     <option *ngFor="let course of courseList" [value]="course.id">{{ course.title }}</option>
   </select>
 
-  <!-- Afficher les questions pour le cours sélectionné>
+  <!-- Bouton "Valider" associé au menu déroulant -->
+  <button (click)="validerCours()">Valider</button>
+
+  <!-- Afficher les questions pour le cours sélectionné-->
   <div *ngFor="let question of questions">
     <h3>{{ question.Question }}</h3>
     <p>{{ question.Answer }}</p>
-  </div-->
+  </div>
 
 </body>
 

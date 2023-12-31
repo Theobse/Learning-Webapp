@@ -210,13 +210,13 @@ app.delete('/api/DeleteQuestion/:id', async (req, res) => {
 });
 
 
-app.get('/api/QuestionsByLearningPackage/:learningPackageId', async (req, res) => {
-    const learningPackageId = req.params.learningPackageId;
+app.get('/api/QuestionsByCourseID/:CourseID', async (req, res) => {
+    const CourseID = req.params.CourseID;
 
     try {
         const questions = await Question.findAll({
             attributes: ['QuestionID', 'Question', 'Answer'],
-            where: { LearningPackageID: learningPackageId }
+            where: { CourseID: CourseID }
         });
 
         res.status(200).json(questions);

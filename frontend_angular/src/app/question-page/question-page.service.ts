@@ -10,8 +10,8 @@ export class QuestionService {
 
   constructor(private http: HttpClient) {}
 
-  getQuestionsByLearningPackage(learningPackageId: number): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/api/QuestionsByLearningPackage/${learningPackageId}`);
+  getQuestionsByCourseID(CourseID: number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/api/QuestionsByCourseID/${CourseID}`);
   }
 
   getAllCourse(): Observable<any[]> {
