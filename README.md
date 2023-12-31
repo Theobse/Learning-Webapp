@@ -52,6 +52,12 @@ Voici un aperçu de l'interface pour cette fonctionnalité :
 ![image](https://github.com/Theobse/Learning-Webapp/assets/149503355/762eb05a-2048-497e-a7fc-43c5ec4b0d22)
 ![image](https://github.com/Theobse/Learning-Webapp/assets/149503355/914c0d07-a201-42cf-97e7-2bff29b2b46e)
 
+# Accéder à l'interface des questions pour les différentes matières.
+Cette section de l'application offre la possibilité de créer et supprimer des questions relatives à diverses matières. De plus, elle permet d'afficher l'ensemble des questions pour une matière spécifique, offrant ainsi à l'utilisateur la chance d'approfondir ses connaissances sur ces sujets.
+
+Voici un aperçu de l'interface pour cette fonctionnalité :
+
+
 # Consulter les statistiques disponibles
 Pour consulter les statistiques disponibles, l'utilisateur n'a pas besoin d'effectuer d'action particulière. Il lui suffit d'étudier les graphiques générés à l'aide de Highcharts sur la page dédiée aux statistiques.
 
